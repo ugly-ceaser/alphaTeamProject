@@ -17,4 +17,89 @@
     background-color:var(--blue);
     
 }
+section {
+    height: 100vh;
+}
+
+section.home {
+    background-image: linear-gradient(var(--blue),var(--white));
+    /* overflow: hidden;
+    position: relative; */
+    
+    height: calc(100vh - 10em);
+}
+
+.home > h1 {
+    position: absolute;
+    font-size: 10em;
+    top: 300px;
+    text-transform: uppercase;
+    margin: 0;
+    z-index: 1;
+    left: 15%;
+}
+
+.home > p {
+    position: absolute;
+    font-size: 1em;
+    width: 40%;
+    z-index: 1;
+    top: 470px;
+    right: 30px;
+}
+
+.box1 {
+    position: absolute;
+    top: 25%;
+    left: 20%;
+    z-index: 0;
+    width: 100px;
+    height: 100px;
+    border: 30px solid #20A2C3;
+    overflow: hidden;
+    transform: rotateZ(65deg)
+}
+
+.box2 {
+    position: absolute;
+    top: 30%;
+    left: 10%;
+    z-index: 0;
+    width: 200px;
+    height: 200px;
+    border: 30px solid rgba(255,255,255,.5);
+    overflow: hidden;
+}
+
+
+
+
+
+
+section.competion {
+    background-image: linear-gradient(var(--white),var(--blue));
+}
+
+section.about{
+    background-image: linear-gradient(var(--blue),var(--white));
+}
+
+section.contact{
+    background-image: linear-gradient(var(--white),var(--blue));
+
+}
+footer{
+    background-color: var(--white);
+    padding: 5px;
+    width: 100%;
+    height: 20px;
+}
+
+  
+
+
+
+
+
+
 

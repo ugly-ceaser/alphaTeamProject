@@ -3,3 +3,12 @@ node_modules
 
 # Ignore files related to API keys
 .env
+
+# Ignore SASS config files
+.sass-cache
+#ignore the lib folders
+lib
+
+#ignore font awesomeness
+font-awesome-4.7.0
+

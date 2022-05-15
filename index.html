@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/lib/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="./css/main.scss">
     <link rel="stylesheet" href="./css/style.css">
     <title>Document</title>
 </head>
@@ -43,11 +44,30 @@
       </nav>
 
       <div>
-          <section id="home" class="home"></section>
-          <section id="competion" class="competion"></section>
+          <section id="home" class="home">
+            
+            <h1 class="  lax_preset_rightToLeft:.1 lax_preset_fadeInOut " style="opacity: 0.5;" >ALPHA TEAM</h1>
+            <p style="opacity: 0.5;" class="desc lax lax_preset_fadeInOut:244.75:0">MAGIC MEETS PERFORMANCE</p>
+           <div class="box1 lax lax_preset_fadeIn:50:100 lax_preset_spin"></div>
+           <div class="box2 lax lax_preset_fadeIn:50:100 lax_preset_spin "></div>
+    
+
+
+
+          </section>
+          <section id="competion" class="competion">
+           
+          
+
+
+          </section>
           <section id="about" class="about"></section>
-          <section id="contact" class="contact"></section>
-          <footer id="footer"></footer>
+          <section id="contact" class="contact">
+
+          </section>
+          <footer id="footer">
+           htfghb
+          </footer>
       </div>
 
    
@@ -56,7 +76,29 @@
 
     
 </body>
+<script src="node_modules/lax.js/lib/lax.min.js"></script>
+<script>
+  window.onload = function () {
+    lax.init()
+
+    // Add a driver that we use to control our animations
+    lax.addDriver('scrollY', function () {
+      return window.scrollY
+    })
+
+    // Add animation bindings to elements
+    lax.addElements('.selector', {
+      scrollY: {
+        translateX: [
+          ["elInY", "elCenterY", "elOutY"],
+          [0, 'screenWidth/2', 'screenWidth'],
+        ]
+      }
+    })
+  }
+</script>
 <script src="./js/lib/bootstrap/jquery-3.5.1.js"></script>
 <script src="./js/lib/bootstrap/bootstrap.js"></script>
+<script src="./js/animation.js"></script>
 <script src="./js/index.js"></script>
 </html>
