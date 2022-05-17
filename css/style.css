@@ -1,6 +1,8 @@
 :root {
     --blue: #023366 !important;
     --white: #fbfaf2 !important;
+    --grad : linear-gradient(var(--blue),var(--white));
+
   }
 
 
@@ -80,6 +82,31 @@ section.competion {
     background-image: linear-gradient(var(--white),var(--blue));
 }
 
+.box3 {
+    position: absolute;
+    top: 1100px;
+    left: 50%;
+    z-index: 0;
+    width: 200px;
+    height: 200px;
+    border: 30px solid var(--blue);
+  
+    overflow: hidden;
+    transform: rotateZ(65deg)
+}
+
+.box4 {
+    position: absolute;
+    top: 1000px;
+    left: 50%;
+    z-index: 0;
+    
+    width: 200px;
+    height: 200px;
+    border: 30px solid rgba(255,255,255,.5);
+    overflow: hidden;
+}
+
 section.about{
     background-image: linear-gradient(var(--blue),var(--white));
 }
@@ -94,6 +121,7 @@ footer{
     width: 100%;
     height: 20px;
 }
+
 
   
 
