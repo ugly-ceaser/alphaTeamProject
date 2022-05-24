@@ -79,16 +79,22 @@ section.home {
 
 
 section.competion {
-    background-image: linear-gradient(var(--white),var(--blue));
+    background-image: linear-gradient(var(--blue),var(--white));
+}
+section.header{
+    background: var(--blue);
+    height:calc(100% - 50rem);
+
 }
 
 .box3 {
     position: absolute;
-    top: 1100px;
-    left: 50%;
+    top: 450px;
+    left: 40%;
     z-index: 0;
     width: 200px;
     height: 200px;
+    border-radius: 35%;
     border: 30px solid var(--blue);
   
     overflow: hidden;
@@ -97,7 +103,7 @@ section.competion {
 
 .box4 {
     position: absolute;
-    top: 1000px;
+    top: 350px;
     left: 50%;
     z-index: 0;
     
@@ -108,12 +114,12 @@ section.competion {
 }
 
 section.about{
-    background-image: linear-gradient(var(--blue),var(--white));
+   
+    background-image: linear-gradient(var(--white),var(--blue));
 }
 
 section.contact{
-    background-image: linear-gradient(var(--white),var(--blue));
-
+    background-image: linear-gradient(var(--blue),var(--white));
 }
 footer{
     background-color: var(--white);
