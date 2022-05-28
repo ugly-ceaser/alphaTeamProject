@@ -10,8 +10,9 @@ include './inc/header.php'
             <div class="border"></div>
             <form action="contact.php" class="contact-form" method="post">
                 
-                <input type="email" class="contact-form-text" placeholder="Your email">
-                <input type="password" class="contact-form-text" placeholder="Your Password">
+                <input type="email" name="userEmail" class="contact-form-text" placeholder="Your email" required>
+
+                <input type="password" name="userPassword" class="contact-form-text" placeholder="Your Password" required>
                 
                 <input type="submit" class="contact-form-btn" value="Login">
             </form>

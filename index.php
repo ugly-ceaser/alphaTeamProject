@@ -10,38 +10,39 @@
     <title>The ALPHA PROJECT</title>
 </head>
 <body>
+
     <nav class="navbar navbar-expand-lg navbar-light bg-light bg" style="background-color:var(--blue) !important; color: var(--white) !important;">
-        <div class="container-fluid" style="background-color:var(--blue); color: var(--white) !important">
-          <a  style="color: var(--white) !important" class="navbar-brand" href="#">ALPHA</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-      
-          <div class="collapse navbar-collapse" id="navbarColor03" style="background-color:var(--blue); color: var(--white) !important">
-            <ul class="navbar-nav me-auto" style="background-color:var(--blue); color: var(--white) !important">
-              <li class="nav-item" style="background-color:var(--blue); color: var(--white) !important">
-                <a class="nav-link active" href="#" style="color: var(--white) !important">Home
-                  <span class="visually-hidden">(current)</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a style="color: var(--white) !important" class="nav-link" href="./pages/competetion.php">Competion</a>
-              </li>
-              <li class="nav-item">
-                <a style="color: var(--white) !important" class="nav-link" href="#">About Us</a>
-              </li>
-              <li class="nav-item">
-                <a  style="color: var(--white) !important"class="nav-link" href="./pages/contact.php">Contact</a>
-              </li>
-             
-            </ul>
-            <form class="d-flex">
-                <a style="color: var(--white) !important" class="nav-link" href="./pages/register.php">Register</a>
-                <a style="color: var(--white) !important" class="nav-link" href="./pages/login.php">Login</a>
-            </form>
-          </div>
-        </div>
-      </nav>
+              <div class="container-fluid" style="background-color:var(--blue); color: var(--white) !important">
+                <a  style="color: var(--white) !important" class="navbar-brand" href="#">ALPHA</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+            
+                <div class="collapse navbar-collapse" id="navbarColor03" style="background-color:var(--blue); color: var(--white) !important">
+                  <ul class="navbar-nav me-auto" style="background-color:var(--blue); color: var(--white) !important">
+                    <li class="nav-item" style="background-color:var(--blue); color: var(--white) !important">
+                      <a class="nav-link active" href="#" style="color: var(--white) !important">Home
+                        <span class="visually-hidden">(current)</span>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a style="color: var(--white) !important" class="nav-link" href="./pages/competetion.php">Competion</a>
+                    </li>
+                    <li class="nav-item">
+                      <a style="color: var(--white) !important" class="nav-link" href="#">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                      <a  style="color: var(--white) !important"class="nav-link" href="./pages/contact.php">Contact</a>
+                    </li>
+                  
+                  </ul>
+                  <form class="d-flex">
+                      <a style="color: var(--white) !important" class="nav-link" href="./pages/register.php">Register</a>
+                      <a style="color: var(--white) !important" class="nav-link" href="./pages/login.php">Login</a>
+                  </form>
+                </div>
+              </div>
+    </nav>
 
       <div>
           <section id="home" class="home col-lg-12 col-md-12 ">
@@ -56,56 +57,68 @@
 
           </section>
 
-          <section id="about">
+        <section id="about">
             <div class="about-1">
-            <h1 >ABOUT US</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Minima, aspernatur. Recusandae, sed. Optio nobis ad eveniet ullam ipsam, error
-            deserunt illo eligendi similique, officia modi culpa autem nostrum quis eaque!
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit, debitis illum? Ipsa eligendi non quas minima inventore
-            vitae mollitia labore alias accusamus beatae sed tenetur fugit quos, perspiciatis nulla iste?
-            
-            </p>
+                <h1 >ABOUT US</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Minima, aspernatur. Recusandae, sed. Optio nobis ad eveniet ullam ipsam, error
+                deserunt illo eligendi similique, officia modi culpa autem nostrum quis eaque!
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit, debitis illum? Ipsa eligendi non quas minima inventore
+                vitae mollitia labore alias accusamus beatae sed tenetur fugit quos, perspiciatis nulla iste?
+                
+                </p>
             </div>
             <div id="about-2">
-            <div class="content-box-lg">
-            <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class=" mt-5" >
-            <i class="fa fa-book"></i>
-            <h3 class="text-center" style="font-weight: bold"  >COMPETITION </h3>
-          
-            
-            <p class="text-center" style="font-weight: bold">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam rerum cumque obcaecati id eum, autem voluptatum
-             quo tempore tenetur mollitia tempora asperiores animi ut similique voluptatibus veniam odit quidem! Fuga.</p>
-            
-                 </div>
-                </div>
-                <div class="col-md-4" style="font-weight: bold;">
-                    <div class="mt-5">
-            <h3 class="text-center" style="font-weight: bold">MISSION</h3>
-            
-            <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam rerum cumque obcaecati id eum, autem voluptatum
-             quo tempore tenetur mollitia tempora asperiores animi ut similique voluptatibus veniam odit quidem! Fuga.</p>
-             
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="mt-5">
-            <i class="fa fa-pencil"></i>
-            <h3 class="text-center" style="font-weight: bold;"> VISSION</h3>
-            
-            <p class="text-center" style="font-weight: bold">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam rerum cumque obcaecati id eum, autem voluptatum
-             quo tempore tenetur mollitia tempora asperiores animi ut similique voluptatibus veniam odit quidem! Fuga.</p>
-             
-                    </div>
-                </div>
+                  <div class="content-box-lg">
+                  <div class="container">
+                  <div class="row">
+                      <div class="col-md-4">
+                          <div class=" mt-5" >
+                                    <i class="fa fa-book"></i>
+                                    <h3 class="text-center" style="font-weight: bold"  >COMPETITION </h3>
+                          
+                            
+                                      <p class="text-center" style="font-weight: bold">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam rerum cumque obcaecati id eum, autem voluptatum
+                                      quo tempore tenetur mollitia tempora asperiores animi ut similique voluptatibus veniam odit quidem! Fuga.</p>
+                      
+                            </div>
+                      </div>
+
+
+                      <div class="col-md-4">
+                          <div class=" mt-5" >
+                                    <i class="fa fa-book"></i>
+                                    <h3 class="text-center" style="font-weight: bold"  >COMPETITION </h3>
+                          
+                            
+                                      <p class="text-center" style="font-weight: bold">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam rerum cumque obcaecati id eum, autem voluptatum
+                                      quo tempore tenetur mollitia tempora asperiores animi ut similique voluptatibus veniam odit quidem! Fuga.</p>
+                      
+                            </div>
+                      </div>
+
+
+                      <div class="col-md-4">
+                          <div class=" mt-5" >
+                                    <i class="fa fa-book"></i>
+                                    <h3 class="text-center" style="font-weight: bold"  >COMPETITION </h3>
+                          
+                            
+                                      <p class="text-center" style="font-weight: bold">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam rerum cumque obcaecati id eum, autem voluptatum
+                                      quo tempore tenetur mollitia tempora asperiores animi ut similique voluptatibus veniam odit quidem! Fuga.</p>
+                      
+                            </div>
+                      </div>
+
+
+                  </div>     
+               
+              
+                 
+
             </div>
-            </div>
-            </div>
-            </div>
-            </section>
+            
+        </section>
          
         
           <section id="contact" class="contact">

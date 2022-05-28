@@ -7,7 +7,10 @@
     <link rel="stylesheet" href="../css/lib/bootstrap/bootstrap.css">
     <link rel="stylesheet" href="../css/main.scss">
     <link rel="stylesheet" href="../css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>The ALPHA PROJECT</title>
+
+   
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light bg" style="background-color:var(--blue) !important; color: var(--white) !important;">
@@ -20,7 +23,7 @@
           <div class="collapse navbar-collapse" id="navbarColor03" style="background-color:var(--blue); color: var(--white) !important">
             <ul class="navbar-nav me-auto" style="background-color:var(--blue); color: var(--white) !important">
               <li class="nav-item" style="background-color:var(--blue); color: var(--white) !important">
-                <a class="nav-link active" href="#" style="color: var(--white) !important">Home
+                <a class="nav-link active" href="../index.php" style="color: var(--white) !important">Home
                   <span class="visually-hidden">(current)</span>
                 </a>
               </li>
@@ -28,7 +31,7 @@
                 <a style="color: var(--white) !important" class="nav-link" href="./competetion.php">Competion</a>
               </li>
               <li class="nav-item">
-                <a style="color: var(--white) !important" class="nav-link" href="#">About Us</a>
+                <a style="color: var(--white) !important" class="nav-link" href="../index.php#about">About Us</a>
               </li>
               <li class="nav-item">
                 <a  style="color: var(--white) !important"class="nav-link" href="./contact.php">Contact</a>
