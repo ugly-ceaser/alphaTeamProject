@@ -12,7 +12,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light bg" style="background-color:var(--blue) !important; color: var(--white) !important;">
         <div class="container-fluid" style="background-color:var(--blue); color: var(--white) !important">
-          <a  style="color: var(--white) !important" class="navbar-brand" href="#">ALPHA</a>
+          <a  style="color: var(--white) !important" class="navbar-brand" href="/">ALPHA</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -25,54 +25,21 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a style="color: var(--white) !important" class="nav-link" href="./competetion.html">Competion</a>
+                <a style="color: var(--white) !important" class="nav-link" href="./competetion.php">Competion</a>
               </li>
               <li class="nav-item">
                 <a style="color: var(--white) !important" class="nav-link" href="#">About Us</a>
               </li>
               <li class="nav-item">
-                <a  style="color: var(--white) !important"class="nav-link" href="./contact.html">Contact</a>
+                <a  style="color: var(--white) !important"class="nav-link" href="./contact.php">Contact</a>
               </li>
              
             </ul>
             <form class="d-flex">
-                <a style="color: var(--white) !important" class="nav-link" href="./register.html">Register</a>
-                <a style="color: var(--white) !important" class="nav-link" href="./login.html">Login</a>
+                <a style="color: var(--white) !important" class="nav-link" href="./register.php">Register</a>
+                <a style="color: var(--white) !important" class="nav-link" href="./login.php">Login</a>
             </form>
           </div>
         </div>
       </nav>
 
-      <div>
-          <section id="home" class=" col-lg-12 col-md-12 ">
-            
-           <div class="contact-section">
-
-            <h1>Login</h1>
-            <div class="border"></div>
-            <form action="contact.html" class="contact-form" method="post">
-                
-                <input type="email" class="contact-form-text" placeholder="Your email">
-                <input type="password" class="contact-form-text" placeholder="Your Password">
-                
-                <input type="submit" class="contact-form-btn" value="Login">
-            </form>
-           </div>
-    
-
-
-
-          </section>
-
-         
-        
-          <footer id="footer">
-
-          </footer>
-      </div>
-</body>
-<script src="../js/lib/bootstrap/jquery-3.5.1.js"></script>
-<script src="../js/lib/bootstrap/bootstrap.js"></script>
-<script src="../js/animation.js"></script>
-<script src="../js/index.js"></script>
-</html>

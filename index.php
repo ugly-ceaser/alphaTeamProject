@@ -25,19 +25,19 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a style="color: var(--white) !important" class="nav-link" href="./pages/competetion.html">Competion</a>
+                <a style="color: var(--white) !important" class="nav-link" href="./pages/competetion.php">Competion</a>
               </li>
               <li class="nav-item">
                 <a style="color: var(--white) !important" class="nav-link" href="#">About Us</a>
               </li>
               <li class="nav-item">
-                <a  style="color: var(--white) !important"class="nav-link" href="./pages/contact.html">Contact</a>
+                <a  style="color: var(--white) !important"class="nav-link" href="./pages/contact.php">Contact</a>
               </li>
              
             </ul>
             <form class="d-flex">
-                <a style="color: var(--white) !important" class="nav-link" href="./pages/register.html">Register</a>
-                <a style="color: var(--white) !important" class="nav-link" href="./pages/login.html">Login</a>
+                <a style="color: var(--white) !important" class="nav-link" href="./pages/register.php">Register</a>
+                <a style="color: var(--white) !important" class="nav-link" href="./pages/login.php">Login</a>
             </form>
           </div>
         </div>

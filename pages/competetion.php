@@ -20,15 +20,15 @@
           <div class="collapse navbar-collapse" id="navbarColor03" style="background-color:var(--blue); color: var(--white) !important">
             <ul class="navbar-nav me-auto" style="background-color:var(--blue); color: var(--white) !important">
               <li class="nav-item" style="background-color:var(--blue); color: var(--white) !important">
-                <a class="nav-link active" href="../index.html" style="color: var(--white) !important">Home
+                <a class="nav-link active" href="../index.php" style="color: var(--white) !important">Home
                   <span class="visually-hidden">(current)</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a style="color: var(--white) !important" class="nav-link" href="./competetion.html">Competion</a>
+                <a style="color: var(--white) !important" class="nav-link" href="./competetion.php">Competion</a>
               </li>
               <li class="nav-item">
-                <a style="color: var(--white) !important" class="nav-link" href="../index.html">About Us</a>
+                <a style="color: var(--white) !important" class="nav-link" href="../index.php">About Us</a>
               </li>
               <li class="nav-item">
                 <a  style="color: var(--white) !important"class="nav-link" href="#Contact">Contact</a>
