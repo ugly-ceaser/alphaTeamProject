@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/lib/bootstrap/bootstrap.css">
-    <link rel="stylesheet" href="./css/main.scss">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="../css/lib/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="../css/main.scss">
+    <link rel="stylesheet" href="../css/style.css">
     <title>The ALPHA PROJECT</title>
 </head>
 <body>
@@ -25,28 +25,39 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a style="color: var(--white) !important" class="nav-link" href="./pages/competetion.html">Competion</a>
+                <a style="color: var(--white) !important" class="nav-link" href="./competetion.html">Competion</a>
               </li>
               <li class="nav-item">
                 <a style="color: var(--white) !important" class="nav-link" href="#">About Us</a>
               </li>
               <li class="nav-item">
-                <a  style="color: var(--white) !important"class="nav-link" href="#">Contact</a>
+                <a  style="color: var(--white) !important"class="nav-link" href="./contact.html">Contact</a>
               </li>
              
             </ul>
             <form class="d-flex">
-                <a style="color: var(--white) !important" class="nav-link" href="#">Register</a>
-                <a style="color: var(--white) !important" class="nav-link" href="#">Login</a>
+                <a style="color: var(--white) !important" class="nav-link" href="./register.html">Register</a>
+                <a style="color: var(--white) !important" class="nav-link" href="./login.html">Login</a>
             </form>
           </div>
         </div>
       </nav>
 
       <div>
-          <section id="home" class="home col-lg-12 col-md-12 ">
+          <section id="home" class=" col-lg-12 col-md-12 ">
             
-           
+           <div class="contact-section">
+
+            <h1>Login</h1>
+            <div class="border"></div>
+            <form action="contact.html" class="contact-form" method="post">
+                
+                <input type="email" class="contact-form-text" placeholder="Your email">
+                <input type="password" class="contact-form-text" placeholder="Your Password">
+                
+                <input type="submit" class="contact-form-btn" value="Login">
+            </form>
+           </div>
     
 
 
@@ -56,39 +67,12 @@
          
         
           <footer id="footer">
-           htfghb
+
           </footer>
       </div>
-
-   
-  
-
-
-    
 </body>
-<script src="node_modules/lax.js/lib/lax.min.js"></script>
-<script>
-  window.onload = function () {
-    lax.init()
-
-    // Add a driver that we use to control our animations
-    lax.addDriver('scrollY', function () {
-      return window.scrollY
-    })
-
-    // Add animation bindings to elements
-    lax.addElements('.selector', {
-      scrollY: {
-        translateX: [
-          ["elInY", "elCenterY", "elOutY"],
-          [0, 'screenWidth/2', 'screenWidth'],
-        ]
-      }
-    })
-  }
-</script>
-<script src="./js/lib/bootstrap/jquery-3.5.1.js"></script>
-<script src="./js/lib/bootstrap/bootstrap.js"></script>
-<script src="./js/animation.js"></script>
-<script src="./js/index.js"></script>
+<script src="../js/lib/bootstrap/jquery-3.5.1.js"></script>
+<script src="../js/lib/bootstrap/bootstrap.js"></script>
+<script src="../js/animation.js"></script>
+<script src="../js/index.js"></script>
 </html>
