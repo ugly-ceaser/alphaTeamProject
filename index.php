@@ -4,11 +4,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#023366">
+    <link rel="apple-touch-icon" href="./img/logo192.png" type="image/png">
     <link rel="stylesheet" href="./css/lib/bootstrap/bootstrap.css">
     <link rel="stylesheet" href="./css/main.scss">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="manifest" href="./manifest.json">
+
     <title>The ALPHA PROJECT</title>
 </head>
+<script>
+
+
+
+
+if("serviceWorker" in navigator){
+    navigator.serviceWorker.register("sw.js").then(registration =>{
+        console.log("SW Register");
+        console.log(registration);
+    }).catch(error => {
+        console.log("SW not Register");
+        console.log(error);
+    })
+}
+
+
+
+
+
+</script>
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light bg" style="background-color:var(--blue) !important; color: var(--white) !important;">
