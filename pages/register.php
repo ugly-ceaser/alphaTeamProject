@@ -128,7 +128,7 @@ include './inc/header.php'
                   <div class="col-6 p-5">
                   
                     <div class="form-check form-switch">
-                      <input id="whatsapp-validation" class="form-check-input" name= "WhatsappLine" value="true" type="checkbox">
+                      <input id="whatsapp-validation" class="form-check-input" name= "WhatsappLine" value= "true" type="checkbox">
                       <label class="form-check-label" >Whatsapp line ?</label>
                     </div>
 

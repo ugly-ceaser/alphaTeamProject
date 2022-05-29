@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#023366">
     <link rel="apple-touch-icon" href="./img/logo192.png" type="image/png">
+    <link rel="icon" href="./img/logo192.png" type="image/png">
     <link rel="stylesheet" href="./css/lib/bootstrap/bootstrap.css">
     <link rel="stylesheet" href="./css/main.scss">
     <link rel="stylesheet" href="./css/style.css">

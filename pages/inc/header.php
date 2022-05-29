@@ -1,3 +1,10 @@
+<?php
+session_start();
+include ("../../publicFiles/conn.php")
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +12,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/lib/bootstrap/bootstrap.css">
+    <link rel="apple-touch-icon" href="../img/logo192.png" type="image/png">
+    <link rel="icon" href="../img/logo192.png" type="image/png">
     <link rel="stylesheet" href="../css/main.scss">
     <link rel="stylesheet" href="../css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -39,8 +48,18 @@
              
             </ul>
             <form class="d-flex">
-                <a style="color: var(--white) !important" class="nav-link" href="./register.php">Register</a>
-                <a style="color: var(--white) !important" class="nav-link" href="./login.php">Login</a>
+              <?php 
+              if(!isset($_SESSION['id'])){ 
+                
+                include ('./notLogged.php');
+              }else{
+                include ('./logged.php');
+              }
+
+
+              ?>
+
+               
             </form>
           </div>
         </div>

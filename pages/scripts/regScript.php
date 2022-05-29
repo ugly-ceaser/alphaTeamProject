@@ -1,5 +1,7 @@
 <?php
 
+include('../../publicFiles/conn.php');
+
 if(isset($_POST['submit'])){
 
     $firstName = $_POST['Firstname'];
@@ -9,8 +11,8 @@ if(isset($_POST['submit'])){
     $userPassword = $_POST['Password'];
     $userRetypePass = $_POST['PasswordRetype'];
     $userPhoneNumber = $_POST['PhoneNumber'];
-    $isWhatsapp = $_POST['WhatsappLine'];
-
+     $isWhatsapp = $_POST['WhatsappLine'];
+    //$isgroupLeader = false;
 
 
     $errorEmpty = false;
@@ -35,12 +37,48 @@ if(isset($_POST['submit'])){
 
     }else{
 
-        echo "<span class='success'>SUCCESS</span>";
+        
 
         $errorEmpty = false;
 
 
         $errorEmail = false;
+
+        
+
+       
+        
+        // $sql = "INSERT INTO Users (`Firstname`,`Lastname`,`Username`,`Email`,`Password`,`Phonenumber`,`whatsappline`,`isgroupLeader`) VALUES(,,,,,,,$isgroupLeader)";
+
+        $sql = "INSERT INTO `Users` (`Firstname`, `Lastname`, `Username`, `Email`, `Password`, `Phonenumber`, `whatsappline`, `isgroupLeader`) VALUES ('$firstName', '$lastName', '$userName', '$Email', '$userPassword', '$userPhoneNumber', '$isWhatsapp', NULL)";
+
+        // use exec() because no results are returned
+        // $conn->exec($sql);
+
+
+        if ($conn->query($sql) === TRUE) {
+            //echo "New record created successfully";
+          
+           
+          } else {
+            //echo "Error: " . $sql . "<br>" . $conn->error;
+          }
+
+         
+          echo "
+
+          <a style='text-decoration:none; font-family: montserrat; color:white !important; font-size:20px !important;' href='./login.php' >
+
+          Proceed to Login ?
+
+          </a>
+
+          ";
+
+       
+
+
+
 
     }
 
@@ -48,6 +86,8 @@ if(isset($_POST['submit'])){
 }else{
     echo "There was a problem";
 }
+
+
 
 
 ?>
