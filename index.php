@@ -1,3 +1,8 @@
+<?php
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -62,17 +67,26 @@ if("serviceWorker" in navigator){
                   
                   </ul>
                   <form class="d-flex">
-                      <a style="color: var(--white) !important" class="nav-link" href="./pages/register.php">Register</a>
-                      <a style="color: var(--white) !important" class="nav-link" href="./pages/login.php">Login</a>
+                    <?php 
+                    if(empty($_SESSION['id'])){
+                      include './inc/notLogged.php';
+                    }
+                    if(!empty($_SESSION['id'])){
+                      include './inc/logged.php';
+                    }
+                    
+                    
+                    ?>
+                    
                   </form>
                 </div>
               </div>
     </nav>
 
       <div>
-          <section id="home" class="home col-lg-12 col-md-12 ">
+          <section id="home" class="home col-lg-12 col-md-12 col-sm-12">
             
-            <h1 class="  lax_preset_rightToLeft:.1 lax_preset_fadeInOut " style="opacity: 0.5;" >ALPHA TEAM</h1>
+            <h1 class="  lax_preset_rightToLeft:.1 lax_preset_fadeInOut" style="opacity: 0.5;" >ALPHA TEAM</h1>
             <p style="opacity: 0.5;" class="desc lax lax_preset_fadeInOut:244.75:0">MAGIC MEETS PERFORMANCE</p>
            <div class="box1 lax lax_preset_fadeIn:50:100 lax_preset_spin"></div>
            <div class="box2 lax lax_preset_fadeIn:50:100 lax_preset_spin "></div>
@@ -82,8 +96,8 @@ if("serviceWorker" in navigator){
 
           </section>
 
-        <section id="about">
-            <div class="about-1">
+        <section id="about row">
+            <div class="about-1 col-md-12">
                 <h1 >ABOUT US</h1>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Minima, aspernatur. Recusandae, sed. Optio nobis ad eveniet ullam ipsam, error
@@ -93,7 +107,7 @@ if("serviceWorker" in navigator){
                 
                 </p>
             </div>
-            <div id="about-2">
+            <div id="about-2 ">
                   <div class="content-box-lg">
                   <div class="container">
                   <div class="row">

@@ -25,3 +25,5 @@ CREATE TABLE `Alpha`.`Task_Submission` (
 
 ALTER TABLE `Task_Submission` ADD `taskfile` VARCHAR(200) NOT NULL AFTER `iscomplete`;
 
+CREATE TABLE `Alpha`.`Profile` ( `id` INT(200) NOT NULL , `about` TEXT NOT NULL , `gender` TEXT NOT NULL , `dob` DATE NOT NULL , `group` VARCHAR(200) NOT NULL , `Role` TEXT NOT NULL, FOREIGN KEY (`id`) REFERENCES Users(`id`) ) ENGINE = InnoDB;
+

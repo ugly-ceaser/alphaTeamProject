@@ -49,7 +49,7 @@ include ("../../publicFiles/conn.php")
             </ul>
             <form class="d-flex">
               <?php 
-              if(!isset($_SESSION['id'])){ 
+              if(empty($_SESSION['id'])){ 
                 
                 include ('./notLogged.php');
               }else{

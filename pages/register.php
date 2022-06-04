@@ -13,11 +13,7 @@ include './inc/header.php'
       event.preventDefault();
 
 
-      let  Firstname = $("#fname-validation").val();
-
-     
-
-      let  Lastname = $("#lname-validation").val();
+      
 
     
 
@@ -53,8 +49,7 @@ include './inc/header.php'
 
         
 
-          Firstname : Firstname ,
-          Lastname : Lastname ,
+          
           Username :  Username ,
           Email : Email ,
           Password :  Password ,
@@ -86,22 +81,13 @@ include './inc/header.php'
             <h1>Register</h1>
             <div class="border"></div>
 
-            <p class="form-message"></p>
+            <p class="form-message">
+              
+            </p>
            
             <form action="./scripts/reg.php" class="contact-form" method="post">
               <div class="row">
-                  <div class="col-6">
-                    <input id="fname-validation" type="text" name="Firstname"  class="contact-form-text" placeholder="Your first name">
-                    <input type="text" id="username-validation" name="Username"  class="contact-form-text" placeholder="Your Username">
-                  
-
-                  </div>
-                  <div class="col-6">
-                    <input id="lname-validation" type="text" name="Lastname"  class="contact-form-text" placeholder="Your Lastname">
-                   
-                    
-                    
-                  </div>
+                 
                   <div class="col-12">
                     <input id="email-validation" type="text" name="Email"  class="contact-form-text" placeholder="Your Email">
 

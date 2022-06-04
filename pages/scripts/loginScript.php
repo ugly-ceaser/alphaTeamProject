@@ -1,4 +1,7 @@
 <?php
+session_start();
+include('../../publicFiles/conn.php');
+
 if(isset($_POST['submit'])){
 
 
@@ -9,36 +12,65 @@ $userPassword = $_POST['Password'];
 
 
 
-$errorEmpty = false;
+$errEmpty = false;
 
 
 $errorEmail = false;
 
 
-if(empty($Email) || empty($userName) || empty($userPassword))
-{
+        if(empty($Email) || empty($userPassword))
+        {
 
-    echo "<span class='error'>Fill all Feilds</span>";
+            echo "<span class='error'>Fill all Feilds</span>";
 
-    $errorEmpty = true;
-     
-}else if(!filter_var($Email, FILTER_VALIDATE_EMAIL)){
+            $errEmpty
+ = true;
+            
+        }else if(!filter_var($Email, FILTER_VALIDATE_EMAIL)){
 
-    echo "<span class='error'>Fill Valid Email</span>";
+            echo "<span class='error'>Fill Valid Email</span>";
 
-    $errorEmail = true;
-
-
-}else{
-
-    echo "<span class='success'>SUCCESS</span>";
-
-    $errorEmpty = false;
+            $errorEmail = true;
 
 
-    $errorEmail = false;
+        }else{
 
-}
+                
+
+                $errEmpty = false;
+
+
+                $errorEmail = false;
+
+                $sql = "SELECT id FROM Users where Email = '$Email' And Password = '$userPassword'";
+                $result = $conn->query($sql);
+
+                if ($result->num_rows > 0) {
+                    $row = $result->fetch_assoc();
+
+                    $id = $row['id'];
+
+                    $_SESSION['id'] = $id;
+
+                    echo "
+
+          <a style='text-decoration:none; font-family: montserrat; color:white !important; font-size:20px !important;' href='../profiles/index.php' >
+
+          Proceed to Dashboard ?
+
+          </a>
+          
+
+          ";
+
+
+
+                }else{
+                    echo "Error: " . $sql . "<br>" . $conn->error;
+                }
+
+                }
+            
 
 
 }else{
@@ -53,11 +85,14 @@ echo "There was a problem";
 
 $("#email-validation,#password-validation").removeClass("inputError"); 
 
-let errorEmpty = "<?php echo  $errorEmpty; ?>"
+let errEmpty
+ = "<?php echo  $errEmpty
+; ?>"
 
 let errorEmail = "<?php echo  $errorEmail; ?>" 
 
-if(errorEmpty == true){
+if(errEmpty
+ == true){
 $("#email-validation,#password-validation").addClass("inputError");
 }
 
@@ -66,7 +101,8 @@ $("#email-validation").addClass("inputError");
 
 }
 
-if(errorEmpty == false && errorEmail == false){
+if(errEmpty
+ == false && errorEmail == false){
 $("#email-validation,#password-validation").val("");
 
 }
