@@ -13,70 +13,96 @@ include('./inc/config.php');
 
 $id = $_SESSION['id'];
 
+
+if(!empty($_SESSION['groupLEADER'])){
+
+
+
 $sql = "SELECT groupLeader_id  FROM GroupDetails where groupLeader_id = '$id' ";
 $result = $conn->query($sql);
 
-if ($result->num_rows > 0) {  ?>
+if ($result->num_rows > 0) { 
+    $row = mysqli_fetch_assoc($result);
 
-<h1> ALPH Group</h1>
-<small style="color:inherit;">Group Cordinator: Martins Onyia</small>
+   // echo $row['groupLeader_id'];
+    $groupleaderId = $row['groupLeader_id'];
+   // die();
+
+    $groupleader = "SELECT * FROM `Profile` WHERE `id` = ' $groupleaderId'";
+    $getLeaderDit = mysqli_query($conn,$groupleader);
+    $row_leader = mysqli_fetch_assoc($getLeaderDit);
+
+   // echo $row_leader['firstName'];
+
+    $groupleader = $row_leader['firstName'];
+   // die();
+    
+    
+    
+    ?>
+
+<h1> ALPHA Group</h1>
+<h3 style="color:inherit;">Group Cordinator: <?= $groupleader ?></h3>
+
+<?php 
+
+$MemberSearch = "SELECT * FROM `Profile` WHERE `id` = '$id'";
+
+$SearchResult = mysqli_query($conn,$MemberSearch);
+
+$row_member = mysqli_fetch_assoc($SearchResult);
+
+$mygroup = $row_member['group'];
 
 
+
+
+
+
+
+
+?>
 <div class="group_Scroller snaps_inline">
+    <?php 
+
+        $groupSearch = "SELECT * FROM `Profile` WHERE `group` = '$mygroup'";
+        $groupMembers = mysqli_query($conn, $groupSearch);
+
+        $members = [];
+
+        while($row = mysqli_fetch_assoc($groupMembers)){
+            array_push($members, $row);
+        }
+
+        // var_dump($members);
+        // die();
+
+         if (count($members)) : ?>
+
+        <?php foreach($members as $member) :
+        ?>
     <div class="group_member">
-        <img src="" alt="member1">
+        <img src="./users_img/<?= $member['profile_pic'] ?>" alt="member1">
         <br>
-        <small>name : Martins</small>
+        <small>name : <?= $member['firstName'] ?></small>
         <br>
-        <small>Role : Frontend Developer</small>
+        <small>Role : <?= $member['role'] ?></small>
         <br>
-        <small>bio : Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis hic neque magni similique blanditiis fugit. Voluptatem autem asperiores eos facilis exercitationem temporibus voluptate, quisquam similique earum, quas quibusdam, maxime ducimus.</small>
+        <small>bio :  <?= $member['about'] ?></small>
     </div>
+   
+  
+    <?php endforeach; ?>
+
+    <?php else : ?>
     <div class="group_member">
-        <img src="" alt="member1">
+        
+        <h1>No Members Yet</h1>
         <br>
-        <small>name : Martins</small>
-        <br>
-        <small>Role : Frontend Developer</small>
-        <br>
-        <small>bio : Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis hic neque magni similique blanditiis fugit. Voluptatem autem asperiores eos facilis exercitationem temporibus voluptate, quisquam similique earum, quas quibusdam, maxime ducimus.</small>
-    </div>
-    <div class="group_member">
-        <img src="" alt="member1">
-        <br>
-        <small>name : Martins</small>
-        <br>
-        <small>Role : Frontend Developer</small>
-        <br>
-        <small>bio : Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis hic neque magni similique blanditiis fugit. Voluptatem autem asperiores eos facilis exercitationem temporibus voluptate, quisquam similique earum, quas quibusdam, maxime ducimus.</small>
-    </div>
-    <div class="group_member">
-        <img src="" alt="member1">
-        <br>
-        <small>name : Martins</small>
-        <br>
-        <small>Role : Frontend Developer</small>
-        <br>
-        <small>bio : Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis hic neque magni similique blanditiis fugit. Voluptatem autem asperiores eos facilis exercitationem temporibus voluptate, quisquam similique earum, quas quibusdam, maxime ducimus.</small>
-    </div>
-    <div class="group_member">
-        <img src="" alt="member1">
-        <br>
-        <small>name : Martins</small>
-        <br>
-        <small>Role : Frontend Developer</small>
-        <br>
-        <small>bio : Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis hic neque magni similique blanditiis fugit. Voluptatem autem asperiores eos facilis exercitationem temporibus voluptate, quisquam similique earum, quas quibusdam, maxime ducimus.</small>
-    </div>
-    <div class="group_member">
-        <img src="" alt="member1">
-        <br>
-        <small>name : Martins</small>
-        <br>
-        <small>Role : Frontend Developer</small>
-        <br>
-        <small>bio : Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis hic neque magni similique blanditiis fugit. Voluptatem autem asperiores eos facilis exercitationem temporibus voluptate, quisquam similique earum, quas quibusdam, maxime ducimus.</small>
-    </div>
+      
+       
+
+    <?php endif; ?>
 
 
 </div>
@@ -85,7 +111,7 @@ if ($result->num_rows > 0) {  ?>
 
 <?php
 }
-else{
+else {
 
     ?>
 
@@ -132,6 +158,117 @@ else{
 
 
 <?php
+}
+}else {
+
+    $id = $_SESSION['id'];
+
+    $groupName = "SELECT * FROM `Profile` WHERE `id` = ' $id'";
+    $getgroupName = mysqli_query($conn,$groupName);
+    $row_groupName = mysqli_fetch_assoc($getgroupName);
+
+   // echo $row_groupName['group'];
+   // die();
+
+    $Gname =$row_groupName['group'];
+   // die();
+
+   $QUERY = "SELECT * FROM `GroupDetails` WHERE `GroupName` = '$Gname'";
+   $Fetch_leader = mysqli_query($conn, $QUERY);
+   $GeT_Leader = mysqli_fetch_assoc($Fetch_leader);
+
+   $leaderId = $GeT_Leader['groupLeader_id'];
+
+   //echo $leaderId;
+   //die();
+
+   $query = "SELECT * FROM `Profile` WHERE `id` = '$leaderId'";
+   $fetch_query = mysqli_query($conn, $query);
+   $row_fetch = mysqli_fetch_assoc($fetch_query);
+
+   $teamLeaderFname = $row_fetch['firstName'];
+   $teamLeaderLname = $row_fetch['lastName'];
+
+   $fullname = $teamLeaderFname . " " . $teamLeaderLname;
+
+  // echo $fullname;
+   //die();
+    
+    
+    
+    
+    ?>
+    
+    <h1> ALPHA Group</h1>
+<h3 style="color:inherit;">Group Cordinator: <?= $fullname ?></h3>
+
+<?php 
+
+$MemberSearch = "SELECT * FROM `Profile` WHERE `id` = '$id'";
+
+$SearchResult = mysqli_query($conn,$MemberSearch);
+
+$row_member = mysqli_fetch_assoc($SearchResult);
+
+$mygroup = $row_member['group'];
+
+
+
+
+
+
+
+
+?>
+<div class="group_Scroller snaps_inline">
+    <?php 
+
+        $groupSearch = "SELECT * FROM `Profile` WHERE `group` = '$mygroup'";
+        $groupMembers = mysqli_query($conn, $groupSearch);
+
+        $members = [];
+
+        while($row = mysqli_fetch_assoc($groupMembers)){
+            array_push($members, $row);
+        }
+
+        // var_dump($members);
+        // die();
+
+         if (count($members)) : ?>
+
+        <?php foreach($members as $member) :
+        ?>
+    <div class="group_member">
+        <img src="./users_img/<?= $member['profile_pic'] ?>" alt="member1">
+        <br>
+        <small>name : <?= $member['firstName'] ?></small>
+        <br>
+        <small>Role : <?= $member['role'] ?></small>
+        <br>
+        <small>bio :  <?= $member['about'] ?></small>
+    </div>
+   
+  
+    <?php endforeach; ?>
+
+    <?php else : ?>
+    <div class="group_member">
+        
+        <h1>No Members Yet</h1>
+        <br>
+      
+       
+
+    <?php endif; ?>
+
+
+</div>
+
+ 
+
+<?php
+
 }
 
 

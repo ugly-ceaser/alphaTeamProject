@@ -119,7 +119,7 @@ if (!empty($_POST['createGroup']))
 
   
 
-    $firstName = $_POST['groupName'];
+    $groupName = $_POST['groupName'];
 
     
 
@@ -144,6 +144,9 @@ if (!empty($_POST['createGroup']))
             {
                 $sql_update = "INSERT INTO `GroupDetails` ( `groupName`, `groupLeader_id`, `groupProfile`) VALUES ('$groupName','$id','$filename')";
                 $result_update = mysqli_query($conn, $sql_update);
+
+                $updateGroup = "UPDATE `Profile` SET `group`='$groupName' WHERE `id` = $id";
+                $group_update = mysqli_query($conn, $updateGroup);
 
 
 

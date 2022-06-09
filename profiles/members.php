@@ -1,20 +1,40 @@
 <?php
+// header('Content-Type: application/json');
 include './inc/header.php';
 include('./inc/config.php');
 
 
-$sql_compiled = "SELECT * FROM Users, `Profile`";
+
+$sql_compiled = "SELECT * FROM Users";
 $result_compiled = mysqli_query($conn, $sql_compiled);
 
-$row_compiled = mysqli_fetch_assoc($result_compiled);
+$users = [];
 
-$rows = [];
-
-while ($row = mysqli_fetch_array($result_compiled)) {
-  array_push($rows, $row);
+while ($row = mysqli_fetch_assoc($result_compiled)) {
+  array_push($users, $row);
 }
 
+$allUsers = [];
 
+foreach ($users as $user) {
+  $id = $user['id'];
+  $query = "SELECT * FROM Profile WHERE `id` = '$id'";
+  $result = mysqli_query($conn, $query);
+
+  if(mysqli_num_rows($result)) {
+    $row = mysqli_fetch_assoc($result);
+  
+  
+    $newArr =  [];
+    array_push($newArr, $user);
+    array_push($newArr, $row);
+    array_push($allUsers, $newArr);
+  }
+}
+
+// echo json_encode($allUsers);
+
+// die();
 
 
 ?>
@@ -43,22 +63,22 @@ while ($row = mysqli_fetch_array($result_compiled)) {
 
 
 
-      <?php if (count($rows)) : ?>
+      <?php if (count($allUsers)) : ?>
 
-        <?php foreach ($rows as $details) : ?>
+        <?php foreach ($allUsers as $details) : ?>
           <tr class="tr">
 
             <td class="name">
-              <h6 class="name"><?= $details["firstName"] . " " . $details["lastName"]; ?></h6>
+              <h6 class="name"><?= $details[1]["firstName"] . " " . $details[1]["lastName"]; ?></h6>
             </td>
             <td class="name">
-              <h6 class="name"><?= $details["group"]; ?></h6>
+              <h6 class="name"><?= $details[1]["group"]; ?></h6>
             </td>
             <td class="name">
-              <h6 class="name"><?= $details["role"]; ?></h6>
+              <h6 class="name"><?= $details[1]["role"]; ?></h6>
             </td>
             <td class="name">
-              <h6 class="name"><?= $details["Phonenumber"]; ?><i class="ni ni-single-copy-04 text-light text-sm opacity-10"></i></h6>
+              <h6 class="name"><?= $details[0]["Phonenumber"]; ?><i class="ni ni-single-copy-04 text-light text-sm opacity-10"></i></h6>
             </td>
 
             <?php

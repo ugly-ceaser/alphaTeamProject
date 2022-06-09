@@ -99,7 +99,8 @@ $errorEmail = false;
 
                     $result = $conn->query($sql);
 
-                    if ($result->num_rows > 0) {
+                    if ($result->num_rows > 0) 
+                    {
 
                         $row = $result->fetch_assoc();
 
@@ -119,6 +120,40 @@ $errorEmail = false;
                        
 
                     }
+
+                    $getGroup_id = "SELECT * FROM `GroupDetails` WHERE `groupLeader_id` = '$id'";
+                    $return = $conn->query($getGroup_id);
+
+                    if($return->num_rows>0){
+                        $row = $return->fetch_assoc();
+
+                        $hasGroup = $row['groupLeader_id'];
+
+                        $_SESSION['hasNOtGroup'] = $hasGroup;
+
+                       
+
+                        //echo $_SESSION['hasGroup'];
+                        
+                        
+
+                     }else if ($return->num_rows <= 0){
+
+                        $hasGroup = "no group";
+
+                        $_SESSION['hasGroup'] = $hasGroup;
+
+                       
+                       
+                     }
+                        
+                        
+
+                    //     die();
+
+                    
+
+                    
 
 
                     

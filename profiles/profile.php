@@ -51,7 +51,11 @@ $name = $row_profile['firstName'] ." " . $row_profile['lastName']  ;
 ?>
     <!-- End Navbar -->
     <div class="main" >
-      <div class="profilepic"><div class="image"><img src="./users_img/<?= $profile_pic ?>" alt=""></div></div>
+      <div class="profilepic"><div class="image"><img style="
+      inline-size:100%;
+      aspect-ratio: 16/14;
+      object-fit: cover;"
+       src="./users_img/<?= $profile_pic ?>" alt=""></div></div>
       <div class="input">
         <div class="attr">
           <p>Name</p>

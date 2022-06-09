@@ -89,7 +89,7 @@ a{
   width: 190px;
   height: 190px;
   border-radius: 1000px;
-  background-color: rgb(210, 210, 210);
+  /* background-color: rgb(210, 210, 210); */
   margin-left: -13%;
 }
 
@@ -323,7 +323,7 @@ font-size: 90%;
       
 
         <li class="nav-item">
-          <a class="nav-link" href="./index.php?page=Timeline&id=<?php echo $id ?>">
+          <a class="nav-link" href="./index.php?page=Timeline">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-single-copy-04 text-light text-sm opacity-10"></i>
             </div>
@@ -331,7 +331,7 @@ font-size: 90%;
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="./profile.php?page=Profile&id=<?php echo $_SESSION['id'] ?>">
+          <a class="nav-link" href="./profile.php?page=Profile">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-tv-2 text-light text-sm opacity-10"></i>
             </div>
@@ -339,7 +339,7 @@ font-size: 90%;
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="./members.php?page=Members&id=<?php echo $_SESSION['id'] ?>">
+          <a class="nav-link" href="./members.php?page=Members">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-tv-2 text-light text-sm opacity-10"></i>
             </div>
@@ -411,7 +411,7 @@ font-size: 90%;
         if(!empty($_SESSION['groupLEADER']) && !empty($_SESSION['group']) ){
           ?>
            <li class="nav-item">
-        <a class="nav-link " href="./group.php?page=Groups">
+        <a class="nav-link " href="./group.php?page=My Group">
           <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
             <i class="ni ni-single-copy-04 text-light text-sm opacity-10"></i>
           </div>
@@ -430,7 +430,7 @@ font-size: 90%;
         if(empty($_SESSION['groupLEADER']) && !empty($_SESSION['group']) ){
             ?>
              <li class="nav-item">
-          <a class="nav-link " href="./groups.php?page=Groups">
+          <a class="nav-link " href="./group.php?page=My Group">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-single-copy-04 text-light text-sm opacity-10"></i>
             </div>
@@ -440,13 +440,15 @@ font-size: 90%;
         <?php
         }
 
+        
+
 
      
 
-        if(!empty($_SESSION['groupLEADER']) && empty($_SESSION['group']) ){
+        if(!empty($_SESSION['groupLEADER']) && empty($_SESSION['hasNOtGroup'])  ){
             ?>
              <li class="nav-item">
-          <a class="nav-link " href="./groups.php?page=Groups">
+          <a class="nav-link " href="./group.php?page=My Group">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-single-copy-04 text-light text-sm opacity-10"></i>
             </div>
