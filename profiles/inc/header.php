@@ -1,43 +1,24 @@
 <?php
 session_start();
+include './config.php';
 
-if(empty($_SESSION['id'])){
+if( !isset($_SESSION['log']) ){
 
   header("Location: ../index.php");
 }
+
+
+// if( !isset($_SESSION['status']) ){
+
+//   header("Location: ./updateprofile.php");
+// }
+
+
 ?>
 
 <?php 
  $page = $_REQUEST['page'];
-
-
-  include('./inc/config.php'); 
-
-
-
-$id =  $_REQUEST['id']; 
-
-$sql_Users = "SELECT * FROM Users where id = '$id'";
-$result_Users = mysqli_query($conn, $sql_Users);  
-
-$row_Users = mysqli_fetch_assoc($result_Users); 
-
-$name =  $row_Users['Firstname'];
-$email =  $row_Users['Email'];
-$status = $row_Users['Status'];
-
-
-$sql_profile = "SELECT * FROM profile where id = '$id'";
-$result_profile = mysqli_query($conn, $sql_profile);  
-
-    $row_profile = mysqli_fetch_assoc($result_profile); 
-  $about =  $row_profile['about'];
-  $gender =   $row_profile['gender'];
-  $dob =   $row_profile['dob'];
-  $role =   $row_profile['role'];
-  $profile_pic =   $row_profile['profile_pic']; 
-
-?>
+ ?>
 
 
 
@@ -48,12 +29,15 @@ $result_profile = mysqli_query($conn, $sql_profile);
 <html lang="en">
 
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/apple-icon.png">
-  <title>
-    Alpha
-  </title>
+<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#023366">
+    <link rel="apple-touch-icon" href="../img/logo192.png" type="image/png">
+    <link rel="icon" href="../img/logo192.png" type="image/png">
+
+    <link rel="manifest" href="../manifest.json">
+
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
   <!-- Nucleo Icons -->
@@ -107,6 +91,13 @@ a{
   border-radius: 1000px;
   background-color: rgb(210, 210, 210);
   margin-left: -13%;
+}
+
+.image >img{
+  inline-size:200px;
+  aspect-ratio:16 9;
+  
+
 }
 
 
@@ -332,7 +323,7 @@ font-size: 90%;
       
 
         <li class="nav-item">
-          <a class="nav-link" href="./index.php?page=Timeline&id=<?php echo $_SESSION['id'] ?>">
+          <a class="nav-link" href="./index.php?page=Timeline&id=<?php echo $id ?>">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-single-copy-04 text-light text-sm opacity-10"></i>
             </div>
@@ -372,7 +363,7 @@ font-size: 90%;
                 <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                 <i class="ni ni-single-copy-04 text-light text-sm opacity-10"></i>
                 </div>
-                <span class="nav-link-text ms-1" style="color: white;">Qaulified Groups</span>
+                <span class="nav-link-text ms-1" style="color: white;">Create Task</span>
             </a>
             </li>
             <?php
@@ -391,6 +382,19 @@ font-size: 90%;
         <?php
         }
 
+        if(!empty($_SESSION['groupLEADER']) && !empty($_SESSION['group']) && !empty($_SESSION['Admin']) ){
+          ?>
+           <li class="nav-item">
+        <a class="nav-link " href="./groups.php?page=Groups">
+          <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+            <i class="ni ni-single-copy-04 text-light text-sm opacity-10"></i>
+          </div>
+          <span class="nav-link-text ms-1" style="color: white;">Veiw  Group</span>
+        </a>
+      </li>
+      <?php
+      }
+
         if( !empty($_SESSION['Admin'])){
             ?>
              <li class="nav-item">
@@ -404,10 +408,26 @@ font-size: 90%;
         <?php
         }
 
+        if(!empty($_SESSION['groupLEADER']) && !empty($_SESSION['group']) ){
+          ?>
+           <li class="nav-item">
+        <a class="nav-link " href="./group.php?page=Groups">
+          <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+            <i class="ni ni-single-copy-04 text-light text-sm opacity-10"></i>
+          </div>
+          <span class="nav-link-text ms-1" style="color: white;">Veiw Your Group</span>
+        </a>
+      </li>
+      <?php
+      }
 
 
 
-        if(!empty($_SESSION['groupLEADER']) && !empty($group) ){
+
+       
+
+
+        if(empty($_SESSION['groupLEADER']) && !empty($_SESSION['group']) ){
             ?>
              <li class="nav-item">
           <a class="nav-link " href="./groups.php?page=Groups">
@@ -421,20 +441,9 @@ font-size: 90%;
         }
 
 
-        if(empty($_SESSION['groupLEADER']) && !empty($group) ){
-            ?>
-             <li class="nav-item">
-          <a class="nav-link " href="./groups.php?page=Groups">
-            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-single-copy-04 text-light text-sm opacity-10"></i>
-            </div>
-            <span class="nav-link-text ms-1" style="color: white;">Veiw Your Group</span>
-          </a>
-        </li>
-        <?php
-        }
+     
 
-        if(!empty($_SESSION['groupLEADER']) && empty($group) ){
+        if(!empty($_SESSION['groupLEADER']) && empty($_SESSION['group']) ){
             ?>
              <li class="nav-item">
           <a class="nav-link " href="./groups.php?page=Groups">
@@ -447,10 +456,10 @@ font-size: 90%;
         <?php
         }
 
-        if(empty($_SESSION['groupLEADER']) && empty($group) ){
+        if(empty($_SESSION['groupLEADER']) && empty($_SESSION['group']) && empty($_SESSION['Admin'])){
             ?>
              <li class="nav-item">
-          <a class="nav-link " href="./groups.php?page=Groups">
+          <a class="nav-link " href="./application.php?page=Application">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-single-copy-04 text-light text-sm opacity-10"></i>
             </div>
@@ -459,7 +468,21 @@ font-size: 90%;
         </li>
         <?php
         }
-         ?>
+
+
+
+        
+          ?>
+          
+
+        <li class="nav-item">
+        <a class="nav-link " href="./updateprofile.php">
+          <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+            <i class="ni ni-single-copy-04 text-light text-sm opacity-10"></i>
+          </div>
+          <span class="nav-link-text ms-1" style="color: white;">Update Profile</span>
+        </a>
+      </li>
        
       </ul>
     </div>
@@ -475,7 +498,7 @@ font-size: 90%;
           <div class="ms-md-auto pe-md-3 d-flex align-items-center">
             <div class="input-group">
              
-              <input type="submit" class="form-control search" value="Log out" style="color: #002365;">
+             <a href="../publicFiles/logout.php" class=""> <input type="submit" class="form-control search" value="Log out" style="color: #002365;"></a>
             </div>
           </div>
           <ul class="navbar-nav  justify-content-end">

@@ -74,7 +74,8 @@ if("serviceWorker" in navigator){
                     if(!empty($_SESSION['id'])){
                       include './inc/logged.php';
                     }
-                    
+                     
+                   
                     
                     ?>
                     

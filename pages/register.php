@@ -94,6 +94,13 @@ include './inc/header.php'
                     
                     
                   </div>
+
+                  <div class="col-6">
+                    <input id="username-validation" type="text" name="Username"   class="contact-form-text" placeholder="Your Username">
+
+                    
+                    
+                  </div>
                   <div class="col-6">
                     <input id="password-validation" type="password" name="Password"   class="contact-form-text" placeholder="Your password">
 
@@ -122,6 +129,9 @@ include './inc/header.php'
 
                   <div class="col-12">
                     <input id="submit-validation" type="submit" name="submit" class="contact-form-btn" value="Register">
+                    <label class="form-check-label mt-5" for="flexCheckChecked">
+                      Already Have an account? <a style="color:#023366 ; text-decoration: none;" href="./login.php">Login</a>
+                     </label>
                   </div>
 
 

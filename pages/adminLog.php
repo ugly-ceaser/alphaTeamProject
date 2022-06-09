@@ -31,7 +31,7 @@ include './inc/header.php'
       let submit = $("#submit-validation").val();
 
 
-      $(".form-message").load("./scripts/loginScript.php",{
+      $(".form-message").load("./scripts/admin.php",{
 
         
 
@@ -71,37 +71,15 @@ include './inc/header.php'
             <div class="border"></div>
             <form action="contact.php" class="contact-form" method="post">
                 
-            <input id="email-validation" type="text" name="Email"  class="contact-form-text" placeholder="Your Email">
+            <input id="email-validation" type="text" name="Email"  class="contact-form-text" placeholder="Your Username">
 
             <input id="password-validation" type="password" name="Password"   class="contact-form-text" placeholder="Your password">
-
-            <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="setCookie" id="flexCheckChecked" checked="">
-        <label class="form-check-label" for="flexCheckChecked">
-          Remember me
-        </label>
-         </div>
                 
             <div class="col-12">
                     <input id="submit-validation" type="submit" name="submit" class="contact-form-btn" value="Login">
-                    <label class="form-check-label mt-5" for="flexCheckChecked">
-                      Don't Have an account? <a style="color:#023366 ; text-decoration: none;" href="./register.php">Register</a>
-                     </label>
                   </div>
-
-
-
-           
-         </div>
             </form>
-
-            
            </div>
-
-
-      
-
-           
     
 
 

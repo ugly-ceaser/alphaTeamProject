@@ -1,6 +1,6 @@
 <?php
 session_start();
-include ("../../publicFiles/conn.php")
+//include ("../../publicFiles/conn.php");
 
 ?>
 
@@ -48,16 +48,7 @@ include ("../../publicFiles/conn.php")
              
             </ul>
             <form class="d-flex">
-              <?php 
-              if(empty($_SESSION['id'])){ 
-                
-                include ('./notLogged.php');
-              }else{
-                include ('./logged.php');
-              }
-
-
-              ?>
+             
 
                
             </form>

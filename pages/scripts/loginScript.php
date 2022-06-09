@@ -52,16 +52,89 @@ $errorEmail = false;
 
                     $_SESSION['id'] = $id;
 
+                    $_SESSION['log'] = "logged";
+
+                    $sql = "SELECT isgroupLeader  FROM Users where id = '$id' ";
+
+                    $result = $conn->query($sql);
+
+                    if ($result->num_rows > 0) {
+
+                        $row = $result->fetch_assoc();
+
+                        $isgroupLeader = $row['isgroupLeader'];
+
+                        $_SESSION['groupLEADER'] = $isgroupLeader;
+
+                        // echo $_SESSION['groupLEADER'];
+                        // die();
+
+                       
+
+                    }
+
+                    $sql = "SELECT * FROM `Profile` WHERE  id = '$id' ";
+
+                    $result = $conn->query($sql);
+
+                    if ($result->num_rows > 0) {
+
+                        $row = $result->fetch_assoc();
+
+                        $_group = $row['group'];
+
+                        $_SESSION['group'] = $_group;
+
+                       
+
+                        // echo $_SESSION['groupLEADER'];
+                        // die();
+
+                       
+
+                    }
+
+
+                    $sql = "SELECT `Status`  FROM Users where id = '$id' ";
+
+                    $result = $conn->query($sql);
+
+                    if ($result->num_rows > 0) {
+
+                        $row = $result->fetch_assoc();
+
+                        $status = $row['Status'];
+
+                        if($status === '0'){
+
+                            $_SESSION['status'] = $status;
+
+                        }
+
+                       
+
+                        // echo $_SESSION['status'];
+                        // die();
+
+                       
+
+                    }
+
+
+                    
+
+                  
+
                     echo "
 
-          <a style='text-decoration:none; font-family: montserrat; color:white !important; font-size:20px !important;' href='../profiles/index.php' >
+          <a style='text-decoration:none; font-family: montserrat; color:white !important; font-size:20px !important;' href='../profiles/index.php?role=<?php' >
 
-          Proceed to Dashboard ?
+          Proceed to Dashboard ? 
 
           </a>
           
 
-          ";
+          " ;
 
 
 

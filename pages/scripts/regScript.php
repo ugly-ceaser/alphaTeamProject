@@ -10,7 +10,7 @@ if(isset($_POST['submit'])){
     $userPassword = $_POST['Password'];
     $userRetypePass = $_POST['PasswordRetype'];
     $userPhoneNumber = $_POST['PhoneNumber'];
-     $isWhatsapp = $_POST['WhatsappLine'];
+    $isWhatsapp = $_POST['WhatsappLine'];
     //$isgroupLeader = false;
 
 
@@ -60,7 +60,10 @@ if(isset($_POST['submit'])){
         
         // $sql = "INSERT INTO Users (`Firstname`,`Lastname`,`Username`,`Email`,`Password`,`Phonenumber`,`whatsappline`,`isgroupLeader`) VALUES(,,,,,,,$isgroupLeader)";
 
-        $sql = "INSERT INTO `Users` ( `Username`, `Email`, `Password`, `Phonenumber`, `whatsappline`, `isgroupLeader`) VALUES ( '$userName', '$Email', '$userPassword', '$userPhoneNumber', '$isWhatsapp', NULL)";
+        $sql = "INSERT INTO `Users` ( `Username`, `Email`, `Password`, `Phonenumber`, `whatsappline`, `isgroupLeader`,`Status`) VALUES ( '$userName', '$Email', '$userPassword', '$userPhoneNumber', '$isWhatsapp', '0','0')";
+
+
+     
 
         // use exec() because no results are returned
         // $conn->exec($sql);
