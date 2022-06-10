@@ -369,18 +369,31 @@ font-size: 90%;
             <?php
             }
         
-        if(!empty($_SESSION['groupLEADER']) || !empty($_SESSION['Admin'])){
+        if(!empty($_SESSION['groupLEADER'])){
             ?>
              <li class="nav-item">
           <a class="nav-link " href="./groups.php?page=Groups">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-single-copy-04 text-light text-sm opacity-10"></i>
             </div>
-            <span class="nav-link-text ms-1" style="color: white;">GROUPS</span>
+            <span class="nav-link-text ms-1" style="color: white;">GROUP</span>
           </a>
         </li>
         <?php
         }
+
+        if(!empty($_SESSION['Admin'])){
+          ?>
+           <li class="nav-item">
+        <a class="nav-link " href="./adminGroup.php?page=Groups">
+          <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+            <i class="ni ni-single-copy-04 text-light text-sm opacity-10"></i>
+          </div>
+          <span class="nav-link-text ms-1" style="color: white;">GROUP</span>
+        </a>
+      </li>
+      <?php
+      }
 
         if(!empty($_SESSION['groupLEADER']) && !empty($_SESSION['group']) && !empty($_SESSION['Admin']) ){
           ?>

@@ -174,7 +174,9 @@ $errorEmail = false;
 
 
                 }else{
-                    echo "Error: " . $sql . "<br>" . $conn->error;
+                    // echo "Error: " . $sql . "<br>" . $conn->error;
+
+                    echo "Invalid Details";
                 }
 
                 }

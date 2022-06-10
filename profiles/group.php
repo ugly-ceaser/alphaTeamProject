@@ -41,8 +41,8 @@ if ($result->num_rows > 0) {
     
     ?>
 
-<h1> ALPHA Group</h1>
-<h3 style="color:inherit;">Group Cordinator: <?= $groupleader ?></h3>
+<h1><?= strtoupper( $row_leader['group']); ?> GROUP</h1>
+<h3 style="color:inherit;">Group Cordinator: <?= strtoupper($groupleader); ?></h3>
 
 <?php 
 
@@ -200,7 +200,7 @@ else {
     ?>
     
     <h1> ALPHA Group</h1>
-<h3 style="color:inherit;">Group Cordinator: <?= $fullname ?></h3>
+<h3 style="color:inherit;">Group Cordinator: <?= strtoupper($fullname); ?></h3>
 
 <?php 
 
@@ -230,6 +230,7 @@ $mygroup = $row_member['group'];
 
         while($row = mysqli_fetch_assoc($groupMembers)){
             array_push($members, $row);
+            
         }
 
         // var_dump($members);
