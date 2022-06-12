@@ -5,6 +5,8 @@ include('./inc/config.php');
  
 
  <form style="margin-top:10px;background-color:#023366 !important; padding:10px; color:#fff !important" class="profileForm" action="./inc/scripts.php" class="contact-form" method="post" enctype="multipart/form-data">
+
+          
  
           <input id="id-validation"   type="text" name="id" hidden value="<?php echo $_SESSION["id"] ?>" >
           

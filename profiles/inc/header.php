@@ -330,6 +330,9 @@ font-size: 90%;
             <span class="nav-link-text ms-1" style="color: white;">Timeline</span>
           </a>
         </li>
+        <?php
+          if(empty($_SESSION['Admin'])){
+            ?>
         <li class="nav-item">
           <a class="nav-link" href="./profile.php?page=Profile">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
@@ -338,6 +341,7 @@ font-size: 90%;
             <span class="nav-link-text ms-1" style="color: white;">Profile</span>
           </a>
         </li>
+        <?php }?>
         <li class="nav-item">
           <a class="nav-link" href="./members.php?page=Members">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
@@ -489,6 +493,10 @@ font-size: 90%;
         
           ?>
           
+          <?php
+          if(empty($_SESSION['Admin'])){
+            ?>
+         
 
         <li class="nav-item">
         <a class="nav-link " href="./updateprofile.php">
@@ -498,6 +506,7 @@ font-size: 90%;
           <span class="nav-link-text ms-1" style="color: white;">Update Profile</span>
         </a>
       </li>
+          <?php }?>
        
       </ul>
     </div>

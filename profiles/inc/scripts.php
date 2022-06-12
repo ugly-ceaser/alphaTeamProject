@@ -48,7 +48,7 @@ if (!empty($_POST['submitProfile']))
 
 
 
-                $sql = "SELECT `Status`  FROM Users where id = '$id' ";
+                $sql = "SELECT  `Status` FROM `Users`  where id = '$id' ";
 
                 $result = $conn->query($sql);
 

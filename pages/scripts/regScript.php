@@ -10,7 +10,17 @@ if(isset($_POST['submit'])){
     $userPassword = $_POST['Password'];
     $userRetypePass = $_POST['PasswordRetype'];
     $userPhoneNumber = $_POST['PhoneNumber'];
-    $isWhatsapp = $_POST['WhatsappLine'];
+    $isWhatsappGet = $_POST['WhatsappLine'];
+
+    if(empty($isWhatsappGet)){
+
+        $isWhatsapp = 0;
+
+    }else{
+        $isWhatsapp = 1;
+    }
+    $isgroupLeader = 0;
+    $status = 0;
     //$isgroupLeader = false;
 
 
@@ -60,7 +70,9 @@ if(isset($_POST['submit'])){
         
         // $sql = "INSERT INTO Users (`Firstname`,`Lastname`,`Username`,`Email`,`Password`,`Phonenumber`,`whatsappline`,`isgroupLeader`) VALUES(,,,,,,,$isgroupLeader)";
 
-        $sql = "INSERT INTO `Users` ( `Username`, `Email`, `Password`, `Phonenumber`, `whatsappline`, `isgroupLeader`,`Status`) VALUES ( '$userName', '$Email', '$userPassword', '$userPhoneNumber', '$isWhatsapp', '0','0')";
+        $sql = "INSERT INTO `Users` ( `Username`, `Email`, `Password`, `Phonenumber`, `whatsappline`, `isgroupLeader`,`Status`) VALUES ( '$userName', '$Email', '$userPassword', '$userPhoneNumber', '$isWhatsapp', '$isgroupLeader','$status')";
+
+        
 
 
      
@@ -70,11 +82,11 @@ if(isset($_POST['submit'])){
 
 
         if ($conn->query($sql) === TRUE) {
-            //echo "New record created successfully";
+           // echo "New record created successfully";
           
            
           } else {
-            //echo "Error: " . $sql . "<br>" . $conn->error;
+            echo "Error: " . $sql . "<br>" . $conn->error;
           }
 
          

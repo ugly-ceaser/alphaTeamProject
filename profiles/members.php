@@ -89,10 +89,19 @@ foreach ($users as $user) {
 
               </td>
             <?php } ?>
+
             <td>
               <a href="" class=" bg-primary text-white"><span>View Profile</span></a>
 
             </td>
+            <?php
+            if (!empty($_SESSION['Admin'])) { ?>
+              <td>
+                <a href="" class="a bg-success"><span>Make Leader</span></a>
+
+
+              </td>
+            <?php } ?>
           </tr>
         <?php endforeach; ?>
 

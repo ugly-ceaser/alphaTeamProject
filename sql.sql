@@ -1,9 +1,9 @@
-DROP DATABASE IF EXISTS `Alpha`;
+DROP DATABASE IF EXISTS `AlphaProject`;
 
 
 
 
-CREATE TABLE `Alpha`.`GroupDetails` ( 
+CREATE TABLE `AlphaProject`.`GroupDetails` ( 
     `id` INT(20) NOT NULL AUTO_INCREMENT ,
     `groupName` VARCHAR(20)  NULL ,
     `groupLeader_id` INT(20) NOT NULL ,
@@ -13,7 +13,7 @@ CREATE TABLE `Alpha`.`GroupDetails` (
      FOREIGN KEY(`groupLeader_id`) REFERENCES Users (`id`));
 
 
-CREATE TABLE `Alpha`.`Task_Submission` ( 
+CREATE TABLE `AlphaProject`.`Task_Submission` ( 
     `id` INT(20) NOT NULL AUTO_INCREMENT , 
     `groupLeader_id` INT(20) NOT NULL , 
     `submissionDate` DATE NOT NULL , 
@@ -25,4 +25,9 @@ CREATE TABLE `Alpha`.`Task_Submission` (
 
 ALTER TABLE `Task_Submission` ADD `taskfile` VARCHAR(200) NOT NULL AFTER `iscomplete`;
 
-CREATE TABLE `Alpha`.`Profile` ( `id` INT(200) NOT NULL , `about` TEXT NOT NULL , `gender` TEXT NOT NULL , `dob` DATE NOT NULL , `group` VARCHAR(200) NOT NULL , `Role` TEXT NOT NULL, FOREIGN KEY (`id`) REFERENCES Users(`id`) ) ENGINE = InnoDB;
+CREATE TABLE `AlphaProject`.`Profile` ( `id` INT(200) NOT NULL , `about` TEXT NOT NULL , `gender` TEXT NOT NULL , `dob` DATE NOT NULL , `group` VARCHAR(200) NOT NULL , `Role` TEXT NOT NULL, FOREIGN KEY (`id`) REFERENCES Users(`id`) ) ENGINE = InnoDB;
+
+
+CREATE TABLE `AlphaProject`.`Admin` (`id` VARCHAR(10) NOT NULL , `Username` VARCHAR(200) NOT NULL , `Password` VARCHAR(23) NOT NULL ) ENGINE = InnoDB;
+
+INSERT INTO `Admin` (`id`, `Username`, `Password`) VALUES ('Admin', 'admin@gmail.com', '0000');
