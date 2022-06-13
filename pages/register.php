@@ -159,6 +159,7 @@ include './inc/header.php'
           </footer>
       </div>
 </body>
+
 <script src="../js/lib/bootstrap/jquery-3.5.1.js"></script>
 <script src="../js/lib/bootstrap/bootstrap.js"></script>
 <script src="../js/animation.js"></script>

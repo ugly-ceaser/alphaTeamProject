@@ -1,27 +1,12 @@
-
-
-
-
-
-
-
 <?php 
 
 include './inc/header.php';
 include('./inc/config.php'); 
 
 
+$id =  $_REQUEST['id']; 
 
-
-
-
-
-
-
-
-
-
-
+$sendId = $_SESSION['id'];
 
 
 $sql_Users = "SELECT * FROM Users where id = '$id'";
@@ -56,6 +41,42 @@ $name = $row_profile['firstName'] ." " . $row_profile['lastName']  ;
       aspect-ratio: 16/14;
       object-fit: cover;"
        src="./users_img/<?= $profile_pic ?>" alt=""></div></div>
+       <div style="display: flex; flex-direction:column; inline-size:20%; justify-content:center; align-items:flex-start; " >
+
+       <?php
+
+
+       $req_check = "SELECT * FROM `Requests` WHERE `senderId` = '$sendId' AND `recieverId` = '$id'AND `status` = 0";
+       $result = $conn->query($req_check);
+       if ($result->num_rows > 0) {
+           echo "Request Already Sent";
+       }else{
+
+        if(!empty($_SESSION['groupLEADER']) && $_SESSION['id'] !== $_REQUEST['id'] ){
+
+        
+            ?>
+             <div  style="display: flex; flex-direction:row; inline-size:100%; justify-content:flex-start; align-items:center;">
+             <button class="btn btn-primary" id="requestBt" onclick='sendAction(1,<?= $id ?>)' type="button">Send Request</button>
+  
+             </div>
+             <?php
+                   }
+
+       }?>
+                 <?php
+                
+             if(!empty($_SESSION['Admin'])){
+                   ?>    
+
+           <div  style="display: flex; flex-direction:row; inline-size:100%; justify-content:flex-start; align-items:center;">
+           <button class="btn btn-primary" type="button">make Group Leader</button>
+               
+               </div>
+
+               <?php }?>
+       </div>
+     
       <div class="input">
         <div class="attr">
           <p>Name</p>
@@ -71,6 +92,8 @@ $name = $row_profile['firstName'] ." " . $row_profile['lastName']  ;
           <p>Role</p>
           <h5 style="margin-top: -1.5%;"><?php  echo $role?></h5>
         </div>
+
+        
 
 
         <div class="attr">
@@ -95,6 +118,17 @@ $name = $row_profile['firstName'] ." " . $row_profile['lastName']  ;
   
 </main> 
 
+<script>
+
+    function sendAction(constant,id){
+        $.post(`./inc/scripts.php?action=sendReq&id=${id}`,function(res){
+            if(res == "Request Sent Successfully"){
+                $('#requestBt').hide();
+                $('#requestBt').parent().html('Request sent succesfully');
+            }
+        })
+    }
+</script>
 
 
 

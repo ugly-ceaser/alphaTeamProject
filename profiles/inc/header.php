@@ -18,6 +18,8 @@ if( !isset($_SESSION['log']) ){
 
 <?php 
  $page = $_REQUEST['page'];
+
+ $id =  $_SESSION['id']; 
  ?>
 
 

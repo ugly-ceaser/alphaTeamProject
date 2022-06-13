@@ -1,5 +1,5 @@
 <?php
-// header('Content-Type: application/json');
+//header('Content-Type: application/json');
 include './inc/header.php';
 include('./inc/config.php');
 
@@ -65,7 +65,10 @@ foreach ($users as $user) {
 
       <?php if (count($allUsers)) : ?>
 
-        <?php foreach ($allUsers as $details) : ?>
+        <?php foreach ($allUsers as $details) : 
+        
+          
+          ?>
           <tr class="tr">
 
             <td class="name">
@@ -91,7 +94,7 @@ foreach ($users as $user) {
             <?php } ?>
 
             <td>
-              <a href="" class=" bg-primary text-white"><span>View Profile</span></a>
+              <a href="membersProfile.php?id=<?= $details[0]["id"]; ?>" class=" bg-primary text-white"><span>View Profile</span></a>
 
             </td>
             <?php
@@ -103,7 +106,7 @@ foreach ($users as $user) {
               </td>
             <?php } ?>
           </tr>
-        <?php endforeach; ?>
+        <?php   endforeach; ?>
 
       <?php else : ?>
 

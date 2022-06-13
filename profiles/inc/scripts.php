@@ -1,6 +1,8 @@
 <?php
+session_start();
 
 include('./config.php');
+
 
 
 //updating user profile
@@ -171,6 +173,56 @@ if (!empty($_POST['createGroup']))
         }
 }
 };
+
+
+
+
+if($_REQUEST['action']==='sendReq'){
+
+   $recieverId = $_REQUEST['id'];
+   $senderId =  $_SESSION['id'];
+   $datesent = date('Y-m-d');
+   $status = 0;
+
+   $sql = "INSERT INTO `Requests`(`senderId`, `recieverId`, `status`, `datesent`) VALUES ('$senderId','$recieverId','$status','$datesent')";
+   $sql_result = mysqli_query($conn,$sql);
+
+   if($sql_result){
+
+
+
+    $sql_profile = "SELECT * FROM profile where id = '$senderId'";
+    $result_profile = mysqli_query($conn, $sql_profile);  
+
+   
+    $row_profile = mysqli_fetch_assoc($result_profile); 
+
+    $name = $row_profile['firstName'] ." " . $row_profile['lastName']  ;
+
+    $group = $row_profile['group'];
+
+    $message = $name . " Requests You Join His Group  " . $group ;
+
+    $isread=0;
+
+    $notify = "INSERT INTO `Notification`(`not_frm`,`not_to`,`message`,`isRead`,`date_Added`) 
+    VALUES ('$senderId','$recieverId','$message','$isread','$datesent')";
+      $notify_result = mysqli_query($conn, $notify);
+
+
+
+    $success = "Request Sent Successfully";
+   }else{
+    $success =   "Request Failed  :" . $sql_result . "<br>" . mysqli_error($conn) ;
+
+   }
+
+   echo $success;
+   
+
+   
+
+}
 
 
 
