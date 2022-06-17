@@ -52,7 +52,7 @@ $errorEmail = false;
 
                     $_SESSION['id'] = $id;
 
-                    $_SESSION['log'] = "logged";
+                   
 
                     $sql = "SELECT isgroupLeader  FROM Users where id = '$id' ";
 
@@ -162,7 +162,7 @@ $errorEmail = false;
 
                     echo "
 
-          <a style='text-decoration:none; font-family: montserrat; color:white !important; font-size:20px !important;' href='../profiles/index.php?role=<?php' >
+          <a style='text-decoration:none; font-family: montserrat; color:white !important; font-size:20px !important;' href='../profiles/index.php?page=Timeline' >
 
           Proceed to Dashboard ? 
 

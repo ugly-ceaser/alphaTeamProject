@@ -24,7 +24,11 @@
 
 
     <?php 
-      $query = "SELECT * FROM `Notification` WHERE `not_to` = '$id' ";
+
+      $useride =  $_SESSION['id'];
+
+
+      $query = "SELECT * FROM `Notification` WHERE `not_to` = '$useride' ";
       $query_result = mysqli_query($conn, $query);
       
 
@@ -44,6 +48,7 @@
         <div class="notify mt-2">
           <div class="who"></div>
           <div class="message"><?=  $row['message']; ?></div>
+          <button class="btn-sm btn-primary mt-2 mx-1">Accept</button> <Button class="btn-sm btn-danger mt-2">Decline</Button>
         </div>
 
       <?php }?>

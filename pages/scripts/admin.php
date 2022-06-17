@@ -47,7 +47,8 @@ if(isset($_POST['submit'])){
 
                     $id = $row['id'];
 
-                    $_SESSION['Admin'] = $id;
+                    $_SESSION['Admin'] = $Email;
+                    $_SESSION['id'] = $id;
 
                     $_SESSION['log'] = "logged";
 
@@ -62,7 +63,7 @@ if(isset($_POST['submit'])){
 
                     echo   "
 
-          <a style='text-decoration:none; font-family: montserrat; color:white !important; font-size:20px !important;' href='../profiles/index.php?role=<?php' >
+          <a style='text-decoration:none; font-family: montserrat; color:white !important; font-size:20px !important;' href='../profiles/index.php?page=Admin Dashboard' >
 
           Proceed to Dashboard ? 
 
@@ -114,7 +115,10 @@ $("#email-validation,#password-validation").val("");
 }
 
 
+
 </script>
+
+
 
 
 

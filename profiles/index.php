@@ -1,12 +1,8 @@
-<?php
+<?php 
 
 include './inc/header.php';
-if ($status == 0){
+include('./inc/config.php'); 
 
-
-
- header('Location: ./profile.php' );
-}
 ?>
 
 
@@ -19,7 +15,11 @@ if ($status == 0){
 
 
   <!--   Core JS Files   -->
-  <?php
-include './inc/footer.php';
-?>
+  <?php  
+  
+ 
+  
+  include './inc/footer.php';
+  ?>
+  
  

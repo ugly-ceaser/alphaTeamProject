@@ -3,78 +3,7 @@ include './inc/header.php'
 ?>
 <div>
 
-<script>
-  $(document).ready(()=>{
-
-
-  
-
-    $("form").submit((event)=>{
-      event.preventDefault();
-
-
-      
-
-    
-
-      let Username = $("#username-validation").val();
-
-    
-
-      let Email = $("#email-validation").val();
-
-     
-
-      let Password = $("#password-validation").val();
-
-      
-
-      let  PasswordRetype = $("#retypepasswod-validation").val();
-
-     
-
-      let  PhoneNumber = $("#phone-validation").val();
-
-     
-
-      let WhatsappLine = $("#whatsapp-validation").val();
-
-    
-
-
-      let submit = $("#submit-validation").val();
-
-
-      $(".form-message").load("./scripts/regScript.php",{
-
-        
-
-          
-          Username :  Username ,
-          Email : Email ,
-          Password :  Password ,
-          PasswordRetype : PasswordRetype ,
-          PhoneNumber : PhoneNumber ,
-          WhatsappLine : WhatsappLine ,
-          submit: submit 
-
-
-      });
-
-
-    })
-  })
-
- 
-
-
-
-
-
-
-
-</script>
-          <section id="home" class=" col-lg-12 col-md-12 ">
+      <section id="home" class=" col-lg-12 col-md-12 ">
             
            <div class="contact-section">
 
@@ -161,6 +90,78 @@ include './inc/header.php'
 </body>
 
 <script src="../js/lib/bootstrap/jquery-3.5.1.js"></script>
+<script>
+  $(document).ready(()=>{
+
+
+  
+
+    $("form").submit((event)=>{
+      event.preventDefault();
+
+
+      
+
+    
+
+      let Username = $("#username-validation").val();
+
+    
+
+      let Email = $("#email-validation").val();
+
+     
+
+      let Password = $("#password-validation").val();
+
+      
+
+      let  PasswordRetype = $("#retypepasswod-validation").val();
+
+     
+
+      let  PhoneNumber = $("#phone-validation").val();
+
+     
+
+      let WhatsappLine = $("#whatsapp-validation").val();
+
+    
+
+
+      let submit = $("#submit-validation").val();
+
+
+      $(".form-message").load("./scripts/regScript.php",{
+
+        
+
+          
+          Username :  Username ,
+          Email : Email ,
+          Password :  Password ,
+          PasswordRetype : PasswordRetype ,
+          PhoneNumber : PhoneNumber ,
+          WhatsappLine : WhatsappLine ,
+          submit: submit 
+
+
+      });
+
+
+    })
+  })
+
+ 
+
+
+
+
+
+
+
+</script>
+    
 <script src="../js/lib/bootstrap/bootstrap.js"></script>
 <script src="../js/animation.js"></script>
 <script src="../js/index.js"></script>

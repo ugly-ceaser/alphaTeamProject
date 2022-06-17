@@ -91,6 +91,11 @@ include('./inc/config.php');
             </div>
  
  </form>
+ <?php  
+  
  
+  
+include './inc/footer.php';
+?>
  
  

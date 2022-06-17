@@ -132,13 +132,16 @@ $name = $row_profile['firstName'] ." " . $row_profile['lastName']  ;
 
 
 
-
 <?php  
   
  
   
-include './inc/footer.php';
-?>
+
+  
+ 
+  
+  include './inc/footer.php';
+  ?>
 
 
   

@@ -1,11 +1,8 @@
 <?php
 session_start();
-include './config.php';
+include './inc/config.php';
 
-if( !isset($_SESSION['log']) ){
 
-  header("Location: ../index.php");
-}
 
 
 // if( !isset($_SESSION['status']) ){
@@ -17,7 +14,12 @@ if( !isset($_SESSION['log']) ){
 ?>
 
 <?php 
+
+if($_REQUEST){
  $page = $_REQUEST['page'];
+}
+
+ 
 
  $id =  $_SESSION['id']; 
  ?>
@@ -493,13 +495,13 @@ font-size: 90%;
 
 
         
-          ?>
-          
-          <?php
-          if(empty($_SESSION['Admin'])){
-            ?>
          
-
+          
+         
+         
+        if(empty($_SESSION["Admin"])){
+          ?>
+        
         <li class="nav-item">
         <a class="nav-link " href="./updateprofile.php">
           <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
@@ -508,7 +510,8 @@ font-size: 90%;
           <span class="nav-link-text ms-1" style="color: white;">Update Profile</span>
         </a>
       </li>
-          <?php }?>
+      <?php } ?>
+          
        
       </ul>
     </div>
@@ -518,7 +521,7 @@ font-size: 90%;
     <nav style="background-color:#002365 !important; border-radius:0px; min-height:5rem;" class=" mb-2 navbar navbar-main navbar-expand-lg mt-3 px-0 mx-0 shadow-none border-radius-xl " id="navbarBlur" data-scroll="false">
       <div class="container-fluid py-1 px-3">
         <nav aria-label="breadcrumb">
-          <h2 class="font-weight-bolder text-white mb-0 h2" style="color: white !important; margin-bottom: 5rem;"><?php echo $page?></h2>
+          <h2 class="font-weight-bolder text-white mb-0 h2" style="color: white !important; margin-bottom: 5rem;"><?= $page ?? ""?></h2>
         </nav>
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
           <div class="ms-md-auto pe-md-3 d-flex align-items-center">
@@ -527,7 +530,7 @@ font-size: 90%;
              <a href="../publicFiles/logout.php" class=""> <input type="submit" class="form-control search" value="Log out" style="color: #002365;"></a>
             </div>
           </div>
-          <ul class="navbar-nav  justify-content-end">
+          <ul class="navbar-nav   justify-content-end">
             <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
               <a href="javascript:;" class="nav-link text-white p-0" id="iconNavbarSidenav">
                 <div class="sidenav-toggler-inner mt-1">

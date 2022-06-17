@@ -94,7 +94,7 @@ foreach ($users as $user) {
             <?php } ?>
 
             <td>
-              <a href="membersProfile.php?id=<?= $details[0]["id"]; ?>" class=" bg-primary text-white"><span>View Profile</span></a>
+              <a href="membersProfile.php?page=Member Profile&id=<?= $details[0]["id"]; ?>" class=" bg-primary text-white"><span>View Profile</span></a>
 
             </td>
             <?php

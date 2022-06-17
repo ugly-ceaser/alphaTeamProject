@@ -2,61 +2,7 @@
 include './inc/header.php'
 ?>
 
-<script>
-  $(document).ready(()=>{
 
-
-  
-
-    $("form").submit((event)=>{
-      event.preventDefault();
-
-
-
-    
-
-      let Email = $("#email-validation").val();
-
-     
-
-      let Password = $("#password-validation").val();
-
-      
-
-     
-
-    
-
-
-      let submit = $("#submit-validation").val();
-
-
-      $(".form-message").load("./scripts/loginScript.php",{
-
-        
-
-         
-          
-          Email : Email ,
-          Password :  Password ,
-          submit: submit 
-
-
-      });
-
-
-    })
-  })
-
- 
-
-
-
-
-
-
-
-</script>
 
 
 
@@ -115,7 +61,63 @@ include './inc/header.php'
           </footer>
       </div>
 </body>
+
 <script src="../js/lib/bootstrap/jquery-3.5.1.js"></script>
+<script>
+  $(document).ready(()=>{
+
+
+  
+
+    $("form").submit((event)=>{
+      event.preventDefault();
+
+
+
+    
+
+      let Email = $("#email-validation").val();
+
+     
+
+      let Password = $("#password-validation").val();
+
+      
+
+     
+
+    
+
+
+      let submit = $("#submit-validation").val();
+
+
+      $(".form-message").load("./scripts/loginScript.php",{
+
+        
+
+         
+          
+          Email : Email ,
+          Password :  Password ,
+          submit: submit 
+
+
+      });
+
+
+    })
+  })
+
+ 
+
+
+
+
+
+
+
+</script>
 <script src="../js/lib/bootstrap/bootstrap.js"></script>
 <script src="../js/animation.js"></script>
 <script src="../js/index.js"></script>

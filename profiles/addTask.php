@@ -27,7 +27,10 @@
 </head>
 
 <?php
+
+
 include './inc/header.php';
+include('./inc/config.php'); 
 
 ?>
 
@@ -76,6 +79,14 @@ include './inc/header.php';
   </main>
 
     <!--   Core JS Files   -->
-    <?php
-include './inc/footer.php';
-?>
+    <?php  
+  
+ 
+  
+  
+  
+ 
+  
+  include './inc/footer.php';
+  ?>
+  
