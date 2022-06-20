@@ -36,6 +36,29 @@ foreach ($users as $user) {
 
 // die();
 
+$groupInfo = $_SESSION['id'];
+
+
+$query = "SELECT * FROM `Profile` WHERE `id` = '$groupInfo '";
+
+$query_result = mysqli_query($conn, $query);
+
+$row_get = mysqli_fetch_assoc($query_result);
+
+
+
+if(!empty($row_get['group'])){
+  $groupStatus = true;
+  
+}else{
+  $groupStatus = false;
+}
+
+// var_dump($groupStatus);
+// $holder = $row_get['group'];
+// echo $holder;
+// die();
+
 
 ?>
 
@@ -72,25 +95,25 @@ foreach ($users as $user) {
           <tr class="tr">
 
             <td class="name">
-              <h6 class="name"><?= $details[1]["firstName"] . " " . $details[1]["lastName"]; ?></h6>
+              <h6 class="name"><?= $details[1]["firstName"] . " " . $details[1]["lastName"] ?? "NAN" ; ?></h6>
             </td>
             <td class="name">
-              <h6 class="name"><?= $details[1]["group"]; ?></h6>
+              <h6 class="name"><?= $details[1]["group"]?? "NAN" ; ?></h6>
             </td>
             <td class="name">
-              <h6 class="name"><?= $details[1]["role"]; ?></h6>
+              <h6 class="name"><?= $details[1]["role"] ?? "NAN" ; ?></h6>
             </td>
             <td class="name">
-              <h6 class="name"><?= $details[0]["Phonenumber"]; ?><i class="ni ni-single-copy-04 text-light text-sm opacity-10"></i></h6>
+              <h6 class="name"><?= $details[0]["Phonenumber"] ?? "NAN" ; ?><i class="ni ni-single-copy-04 text-light text-sm opacity-10"></i></h6>
             </td>
 
             <?php
-            if (!empty($_SESSION['groupLEADER'])) { ?>
-              <td>
+            if (!empty($_SESSION['groupLEADER']) &&  $groupStatus = true ) { ?>
+              <!-- <td>
                 <a href="" class="a bg-success text-white"><span>Send Request </span></a>
 
 
-              </td>
+              </td> -->
             <?php } ?>
 
             <td>

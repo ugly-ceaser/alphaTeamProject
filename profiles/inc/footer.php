@@ -48,7 +48,11 @@
         <div class="notify mt-2">
           <div class="who"></div>
           <div class="message"><?=  $row['message']; ?></div>
-          <button class="btn-sm btn-primary mt-2 mx-1">Accept</button> <Button class="btn-sm btn-danger mt-2">Decline</Button>
+          <?php $senderId =$row['not_frm'];?>
+
+          <button id="acceptButton" class="btn-sm btn-primary mt-2 mx-1" onclick='acceptAction(1,<?= $senderId ?>)' >Accept</button> 
+          
+          <button id="declineButton" class="btn-sm btn-danger mt-2" onclick='declineAction(1,<?= $senderId ?>)'>Decline</button>
         </div>
 
       <?php }?>
@@ -78,6 +82,33 @@
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+  const acceptAction = (constant,senderId) =>{
+    $.post(`../inc/scripts.php?action=acceptReq&id=${senderId}`,(res)=>{
+      if(res == "Accepted"){
+        $('#acceptButton','#declineButton').hide();
+        $('#acceptButton').parent().html('Request Accepted');
+
+      }
+    })
+
+  }
+
+
+
+  const declineAction = (constant,senderId) =>{
+    $.post(`../inc/scripts.php?action=declineReq&id=${senderId}`,(res)=>{
+      if(res == "Accepted"){
+        $('#acceptButton','#declineButton').hide();
+        $('#acceptButton').parent().html('Request Declined');
+
+      }
+    })
+
+  }
+
+</script>
 <script src="./assets/js/core/popper.min.js"></script>
 <script src="./assets/js/core/bootstrap.min.js"></script>
 <script src="./assets/js/plugins/perfect-scrollbar.min.js"></script>

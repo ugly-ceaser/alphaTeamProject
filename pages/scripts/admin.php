@@ -52,8 +52,26 @@ if(isset($_POST['submit'])){
 
                     $_SESSION['log'] = "logged";
 
+                    echo   "
 
-                 }
+                    <a style='text-decoration:none; font-family: montserrat; color:white !important; font-size:20px !important;' href='../profiles/index.php?page=Admin Dashboard' >
+          
+                    Proceed to Dashboard ? 
+          
+                    </a>
+                    
+          
+                    " ;
+
+
+                }else{
+                    echo "Valid Details";
+                }
+
+            }
+            
+
+            
 
                     
 
@@ -61,26 +79,17 @@ if(isset($_POST['submit'])){
 
                   
 
-                    echo   "
-
-          <a style='text-decoration:none; font-family: montserrat; color:white !important; font-size:20px !important;' href='../profiles/index.php?page=Admin Dashboard' >
-
-          Proceed to Dashboard ? 
-
-          </a>
-          
-
-          " ;
+           
 
 
 
-                }
+                
 
                 
             
 
-
-}else{
+ }
+ else{
 echo "There was a problem";
 }
 
