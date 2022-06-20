@@ -46,10 +46,26 @@ $name = $row_profile['firstName'] ." " . $row_profile['lastName']  ;
        <?php
 
 
-       $req_check = "SELECT * FROM `Requests` WHERE `senderId` = '$sendId' AND `recieverId` = '$id'AND `status` = 0";
+       $req_check = "SELECT * FROM `Requests` WHERE `senderId` = '$sendId' AND `recieverId` = '$id'";
        $result = $conn->query($req_check);
        if ($result->num_rows > 0) {
-           echo "Request Already Sent";
+        $status_fetch = mysqli_fetch_assoc($result);
+
+        $status = $status_fetch['status'];
+
+        
+           if($status == 1){
+            echo "Request Accepted";
+           }else if($status == 0){
+
+            echo "Request Declined";
+
+           }
+           else{
+
+            echo "Request Awaiting Response";
+
+           }
        }else{
 
         if(!empty($_SESSION['groupLEADER']) && $_SESSION['id'] !== $_REQUEST['id'] ){

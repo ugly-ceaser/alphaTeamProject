@@ -47,12 +47,12 @@ $row_get = mysqli_fetch_assoc($query_result);
 
 
 
-if(!empty($row_get['group'])){
-  $groupStatus = true;
+// if(!empty($row_get['group'])){
+//   $groupStatus = true;
   
-}else{
-  $groupStatus = false;
-}
+// }else{
+//   $groupStatus = false;
+// }
 
 // var_dump($groupStatus);
 // $holder = $row_get['group'];
@@ -108,7 +108,7 @@ if(!empty($row_get['group'])){
             </td>
 
             <?php
-            if (!empty($_SESSION['groupLEADER']) &&  $groupStatus = true ) { ?>
+            if (!empty($_SESSION['groupLEADER'])) { ?>
               <!-- <td>
                 <a href="" class="a bg-success text-white"><span>Send Request </span></a>
 

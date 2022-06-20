@@ -23,6 +23,8 @@ CREATE TABLE `AlphaProject`.`GroupDetails`
 (`groupLeader_id`) REFERENCES Users
 (`id`));
 
+ALTER TABLE `GroupDetails` ADD `qaulification` BOOLEAN NULL AFTER `groupProfile`;
+
 
 CREATE TABLE `AlphaProject`.`Task_Submission`
 ( 
