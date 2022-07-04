@@ -103,9 +103,10 @@ include './inc/header.php'
       
 
     
-
+       
       let Username = $("#username-validation").val();
 
+     
     
 
       let Email = $("#email-validation").val();

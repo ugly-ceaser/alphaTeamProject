@@ -42,6 +42,8 @@ while ($row = mysqli_fetch_assoc($SearchResult)) {
     <?php foreach ($groups as $teams) : ?>
         <div>
             <h3 style="color:inherit;">Group Name: <?= $teams[0]['groupName']; ?> </h3>
+            <button style="margin:15px;">Qaulify Group</button>
+
             <div class="group_Scroller snaps_inline">
                 <?php foreach ($teams as $team) : ?>
                     <div class="group_member">

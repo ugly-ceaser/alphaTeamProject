@@ -5,6 +5,8 @@ include('./inc/config.php');
 
 ?>
 
+<?= $_SESSION['id']; ?>
+
 
 
 

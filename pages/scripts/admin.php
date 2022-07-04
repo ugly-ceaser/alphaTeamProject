@@ -50,7 +50,7 @@ if(isset($_POST['submit'])){
                     $_SESSION['Admin'] = $Email;
                     $_SESSION['id'] = $id;
 
-                    $_SESSION['log'] = "logged";
+                    $_SESSION['logged'] =  "logged_in";
 
                     echo   "
 

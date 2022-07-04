@@ -80,17 +80,45 @@ $name = $row_profile['firstName'] ." " . $row_profile['lastName']  ;
                    }
 
        }?>
-                 <?php
-                
-             if(!empty($_SESSION['Admin'])){
-                   ?>    
+               <?php
 
-           <div  style="display: flex; flex-direction:row; inline-size:100%; justify-content:flex-start; align-items:center;">
-           <button class="btn btn-primary" type="button">make Group Leader</button>
-               
-               </div>
+if(!empty($_SESSION['Admin'])){
 
-               <?php }?>
+
+    $req_check = "SELECT * FROM `Users` WHERE `id` = '$id'";
+    $result = $conn->query($req_check);
+
+          if ($result->num_rows > 0) {
+              $status_fetch = mysqli_fetch_assoc($result);
+
+              $status = $status_fetch['isgroupLeader'];
+
+          
+              if($status == 1){
+              echo "All Reader Leader";
+              }else if ($status == 0 ){  //echo"not a leader"; ?>
+
+
+                  
+                              
+              
+                    <div  style="display: flex; flex-direction:row; inline-size:100%; justify-content:flex-start; align-items:center;">
+                    <button class="btn btn-primary" id="makeLeader" onclick='makeLeaderAction(1,<?= $id ?>)' type="button">make Group Leader</button>
+
+                    
+                        
+                        </div>
+
+                        
+                        
+                        
+                        
+                      <?php  }
+                      
+            
+            }
+            
+}?>
        </div>
      
       <div class="input">
@@ -134,17 +162,9 @@ $name = $row_profile['firstName'] ." " . $row_profile['lastName']  ;
   
 </main> 
 
-<script>
+<script src="../js/lib/bootstrap/jquery-3.5.1.js"></script>
 
-    function sendAction(constant,id){
-        $.post(`./inc/scripts.php?action=sendReq&id=${id}`,function(res){
-            if(res == "Request Sent Successfully"){
-                $('#requestBt').hide();
-                $('#requestBt').parent().html('Request sent succesfully');
-            }
-        })
-    }
-</script>
+<script src="./inc/script.js"></script>
 
 
 

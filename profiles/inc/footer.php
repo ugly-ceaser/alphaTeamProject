@@ -1,8 +1,4 @@
-
-
-
-
-
+<?php ?>
 
 
 <div class="fixed-plugin">
@@ -18,94 +14,62 @@
       </div>
       <!-- End Toggle Button -->
     </div>
-
-
     <hr class="horizontal dark my-1">
 
+    <?php
 
-    <?php 
-
-      $useride =  $_SESSION['id'];
-
-
-      $query = "SELECT * FROM `Notification` WHERE `not_to` = '$useride' ";
-      $query_result = mysqli_query($conn, $query);
-
-    
+    $useride =  $_SESSION['id'];
+    $query = "SELECT * FROM `Notification` WHERE `not_to` = '$useride' ";
+    $query_result = mysqli_query($conn, $query);
       
+    while ($row = mysqli_fetch_array($query_result)) {
+      
+      ?>
 
-      while ($row = mysqli_fetch_array($query_result)){ ?>
+    <div class="notify mt-2">
+      <div class="who">Alert</div>
+      <div class="message"><?= $row['message'];?></div>
+    </div>
 
-     
+    <?php
+
+        $senderId = $row['not_frm'];
+
+
+        $status = $row['isRead'];
+
+        if ($status == '0'){ ?>
+          
+          <button id="acceptButton" class="btn-sm btn-primary mt-2 mx-1" onclick="acceptAction(1,<?= $senderId ?>)">Accept</button>
+      
+          <button id="declineButton" class="btn-sm btn-danger mt-2" onclick="declineAction(1,<?= $senderId ?>)">Decline</button>
         
-      
-
-
-      
-    
-    
-    
-
-
-
-  
-        <div class="notify mt-2">
-          <div class="who"></div>
-          <div class="message"><?=  $row['message']; ?></div>
-          <?php
+        <?php  } 
           
-          $senderId =$row['not_frm'];
-
-
-          $status = $row['isRead'];
-
-          if($status == '0'){  ?>
-
-          <button id="acceptButton" class="btn-sm btn-primary mt-2 mx-1" onclick='acceptAction(1,<?= $senderId ?>)' >Accept</button> 
-          
-          <button id="declineButton" class="btn-sm btn-danger mt-2" onclick='declineAction(1,<?= $senderId ?>)'>Decline</button>
-
-
-          <?php } ?>
-        </div>
-
-      <?php }?>
-
-    
-    
-
-
-
+          } ?>
 
 
 
   </div>
 </div>
-</div>
-    
-    
 
 
 
 
 
 
-  </div>
-</div>
-</div>
-
-
+</body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <script>
-  const acceptAction = (constant,senderId) =>{
+  const acceptAction = (constant, senderId) => {
 
-      //alert("Accepyted");
+    //alert("Accepyted");
 
 
-    $.post(`./inc/scripts.php?action=acceptReq&id=${senderId}`,(res)=>{
-      if(res == "Request Sent Successfully"){
-        $('#acceptButton','#declineButton').hide();
+    $.post(`./inc/scripts.php?action=acceptReq&id=${senderId}`, (res) => {
+      if (res == "Request Sent Successfully") {
+        $('#acceptButton', '#declineButton').hide();
         $('#acceptButton').parent().html('Request Accepted');
 
       }
@@ -115,21 +79,19 @@
 
 
 
-  const declineAction = (constant,senderId) =>{
+  const declineAction = (constant, senderId) => {
 
     //alert("Declinded");
 
-
-    $.post(`./inc/scripts.php?action=declineReq&id=${senderId}`,(res)=>{
-      if(res == "Request Sent Successfully"){
-        $('#acceptButton','#declineButton').hide();
+    $.post(`./inc/scripts.php?action=declineReq&id=${senderId}`, (res) => {
+      if (res == "Request Sent Successfully") {
+        $('#acceptButton', '#declineButton').hide();
         $('#acceptButton').parent().html('Request Declined');
 
       }
     })
 
   }
-
 </script>
 <script src="./assets/js/core/popper.min.js"></script>
 <script src="./assets/js/core/bootstrap.min.js"></script>
@@ -140,6 +102,5 @@
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
 <script src="./assets/js/argon-dashboard.min.js?v=2.0.2"></script>
-</body>
 
 </html>

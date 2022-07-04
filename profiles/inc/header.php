@@ -1,6 +1,12 @@
 <?php
 session_start();
+
+if(empty($_SESSION['logged']) ){
+  header("Location: ../index.php");
+}
 include './inc/config.php';
+
+
 
 
 
@@ -54,256 +60,256 @@ if($_REQUEST){
   <link id="pagestyle" href="./assets/css/argon-dashboard.css?v=2.0.2" rel="stylesheet" />
   <style>
 
-a{
-    border-radius:0px !important;
-}
+        a{
+            border-radius:0px !important;
+        }
 
 
 
 
 
 
-.notify{
-  padding: 6%;
-  background-color: #002365;
-  border-radius: 8px;
-}
-.who{
-  color: #fff;
-  font-size: 100%;
-  font-weight: bold;
-}
-.message{
-  color: #fff;
-  font-size: 70%;
-}
-.greeting{
-  color: #724cb7;
-  font-size: 220%;
-  transform: translate(0%, 0%);
-}
-.profilepic{
-  width: 100%;
-  height: fit-content;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.image{
-  width: 190px;
-  height: 190px;
-  border-radius: 1000px;
-  /* background-color: rgb(210, 210, 210); */
-  margin-left: -13%;
-}
+        .notify{
+          padding: 6%;
+          background-color: #002365;
+          border-radius: 8px;
+        }
+        .who{
+          color: #fff;
+          font-size: 100%;
+          font-weight: bold;
+        }
+        .message{
+          color: #fff;
+          font-size: 70%;
+        }
+        .greeting{
+          color: #724cb7;
+          font-size: 220%;
+          transform: translate(0%, 0%);
+        }
+        .profilepic{
+          width: 100%;
+          height: fit-content;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        .image{
+          width: 190px;
+          height: 190px;
+          border-radius: 1000px;
+          /* background-color: rgb(210, 210, 210); */
+          margin-left: -13%;
+        }
 
-.image >img{
-  inline-size:200px;
-  aspect-ratio:16 9;
-  
+        .image >img{
+          inline-size:200px;
+          aspect-ratio:16 9;
+          
 
-}
-
-
-textarea, input{
-  border: none;
-  border: 1.7px solid #002365;
-  border-radius: 3px;
-}
-textarea{
-  width: 95%;
-  height: 170px;
-}
+        }
 
 
-
-.input{
-  margin-top: 3%;
-  width: 100%;
-}
-
-.attr{
-  margin-bottom: 1%;
-}
-.main{
-  margin-left: 2.99%; 
-  width: 92%;
-}
-.i{
-transform: scale(2);
-margin-top: 20%;
-}
-@media (max-width:800px) {
-  .main{
-    margin-left: 5%; 
-    width: 90%;
-  }
-  .h2{
-    margin-bottom: 5% !important;
-    margin-left: -25%;
-  }
-  .search{
-    margin-left: -25px;
-  }
-  .input{
-    margin-top: 12%;
-  }
-  .about{
-    text-align: justify;
-  }
-  .attr{
-    margin-bottom: 3%;
-  }
-  .attr p{
-    margin-bottom: 2%;
-  }
-  .attr div{
-    gap: 3% !important;
-  }
-  .attr div a{
-    margin-top: -.7px !important;
-  }
-  .profilepic{
-    margin-top: 5%;
-  }
-  .image{
-    margin-left: -2%;
-  }
-  .input-group{
-    margin-top: 12%;
-  }
-}
-
-.flex{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 2%;
-  flex-wrap: wrap;
-}
-.flex a{
-  flex-basis: 23%;
-  text-align: center;
-  height: 200px;
-  background-color: rgb(0, 35, 101, 0.6);
-  margin-bottom: 2%;
-  padding: 6%;
-  border-radius: 5px;
-  font-size: 120%;
-  transition: 200ms ease; 
-}
-
-.flex a:hover{
-  transform: scale(1.07);
-}
-
-.flex a h4{
-  color: white;
-  letter-spacing: 2px !important;
-  margin-top: 5%;
-}
-.flex a h6{
-  margin-top: 6%;
-  color: white;
-  font-size: 88%;
-}
-
-.flex .a{
-  background-color: rgb(0, 35, 101, 0.4);
-}
-.i{
-transform: scale(1.8);
-}
-
-@import "https://unpkg.com/open-props";
-@import "https://unpkg.com/open-props/normalize.min.css";
-
-.group_Scroller{
-    display:grid;
-    gap:1rem;
-    grid-auto-flow: column;
-    grid-auto-columns: 21%;
-    overflow-x: auto;
-    overscroll-behavior-inline: contain;
-}
-
-.group_member{
-    display:grid;
-    grid-template-rows: min-content;
-    gap:0.5rem;
-    padding:1rem;
-    background-color:#002365;
-    color:#fff;
-    /* padding: 0 1rem 1rem; */
-}
-
-.group_member > img{
-    inline-size:100%;
-    aspect-ratio: 16/9;
-    object-fit: cover;
-}
-.snaps_inline{
-    scroll-snap-type: inline mandatory;
-    scroll-padding-inline: 0.5rem ;
-}
-
-.snaps_inline > *{
-    scroll-snap-align: start;
-}
+        textarea, input{
+          border: none;
+          border: 1.7px solid #002365;
+          border-radius: 3px;
+        }
+        textarea{
+          width: 95%;
+          height: 170px;
+        }
 
 
-.flex > table{
-    width: 97%;
-    border: 1px solid #002365;
-    border-radius: 10px !important;
-    padding: 2% !important;
-  }
-  th{
-    padding: 1%;
-    margin-top: 3%;
-  }
- td > h5, .name{
-    padding-left: 2%;
-    padding-top: 1%;
-    padding-bottom: 1%;
-  }
-  .tr:nth-child(even){
-    background-color: rgb(0,35,101,0.45);
 
-  }
+        .input{
+          margin-top: 3%;
+          width: 100%;
+        }
 
-  .tr:nth-child(even) > td .name{
-         color: white;
-  }
-  table a{
-    background-color: white;
-    padding: 1%;
-    border-radius: 3px;
-    color: #002365;
-  }
+        .attr{
+          margin-bottom: 1%;
+        }
+        .main{
+          margin-left: 2.99%; 
+          width: 92%;
+        }
+        .i{
+        transform: scale(2);
+        margin-top: 20%;
+        }
+        @media (max-width:800px) {
+          .main{
+            margin-left: 5%; 
+            width: 90%;
+          }
+          .h2{
+            margin-bottom: 5% !important;
+            margin-left: -25%;
+          }
+          .search{
+            margin-left: -25px;
+          }
+          .input{
+            margin-top: 12%;
+          }
+          .about{
+            text-align: justify;
+          }
+          .attr{
+            margin-bottom: 3%;
+          }
+          .attr p{
+            margin-bottom: 2%;
+          }
+          .attr div{
+            gap: 3% !important;
+          }
+          .attr div a{
+            margin-top: -.7px !important;
+          }
+          .profilepic{
+            margin-top: 5%;
+          }
+          .image{
+            margin-left: -2%;
+          }
+          .input-group{
+            margin-top: 12%;
+          }
+        }
 
-  .tr:nth-child(odd) > td a{
-    background-color: rgb(0,35,101,0.4);
-    color: white;
-  }
-  @media (max-width:800px) {
-    .input-group{
-      margin-top: 12%;
-    }
-    table{
-      margin-top: 5%;
-    }
-table h5, table a{
-font-size: 90%;
-}
-    table tr td div{
-      flex-basis: 100%;
-    }
-    table tr td .a{
-      margin-left: 0% !important;
-      margin-top: -10% !important;
-    }
-    }
+        .flex{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 2%;
+          flex-wrap: wrap;
+        }
+        .flex a{
+          flex-basis: 23%;
+          text-align: center;
+          height: 200px;
+          background-color: rgb(0, 35, 101, 0.6);
+          margin-bottom: 2%;
+          padding: 6%;
+          border-radius: 5px;
+          font-size: 120%;
+          transition: 200ms ease; 
+        }
+
+        .flex a:hover{
+          transform: scale(1.07);
+        }
+
+        .flex a h4{
+          color: white;
+          letter-spacing: 2px !important;
+          margin-top: 5%;
+        }
+        .flex a h6{
+          margin-top: 6%;
+          color: white;
+          font-size: 88%;
+        }
+
+        .flex .a{
+          background-color: rgb(0, 35, 101, 0.4);
+        }
+        .i{
+        transform: scale(1.8);
+        }
+
+        @import "https://unpkg.com/open-props";
+        @import "https://unpkg.com/open-props/normalize.min.css";
+
+        .group_Scroller{
+            display:grid;
+            gap:1rem;
+            grid-auto-flow: column;
+            grid-auto-columns: 21%;
+            overflow-x: auto;
+            overscroll-behavior-inline: contain;
+        }
+
+        .group_member{
+            display:grid;
+            grid-template-rows: min-content;
+            gap:0.5rem;
+            padding:1rem;
+            background-color:#002365;
+            color:#fff;
+            /* padding: 0 1rem 1rem; */
+        }
+
+        .group_member > img{
+            inline-size:100%;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+        }
+        .snaps_inline{
+            scroll-snap-type: inline mandatory;
+            scroll-padding-inline: 0.5rem ;
+        }
+
+        .snaps_inline > *{
+            scroll-snap-align: start;
+        }
+
+
+        .flex > table{
+            width: 97%;
+            border: 1px solid #002365;
+            border-radius: 10px !important;
+            padding: 2% !important;
+          }
+          th{
+            padding: 1%;
+            margin-top: 3%;
+          }
+        td > h5, .name{
+            padding-left: 2%;
+            padding-top: 1%;
+            padding-bottom: 1%;
+          }
+          .tr:nth-child(even){
+            background-color: rgb(0,35,101,0.45);
+
+          }
+
+          .tr:nth-child(even) > td .name{
+                color: white;
+          }
+          table a{
+            background-color: white;
+            padding: 1%;
+            border-radius: 3px;
+            color: #002365;
+          }
+
+          .tr:nth-child(odd) > td a{
+            background-color: rgb(0,35,101,0.4);
+            color: white;
+          }
+          @media (max-width:800px) {
+            .input-group{
+              margin-top: 12%;
+            }
+            table{
+              margin-top: 5%;
+            }
+        table h5, table a{
+        font-size: 90%;
+        }
+            table tr td div{
+              flex-basis: 100%;
+            }
+            table tr td .a{
+              margin-left: 0% !important;
+              margin-top: -10% !important;
+            }
+            }
 
 
 
@@ -419,7 +425,7 @@ font-size: 90%;
         if( !empty($_SESSION['Admin'])){
             ?>
              <li class="nav-item">
-          <a class="nav-link " href="./groups.php?page=Groups">
+          <a class="nav-link " href="./Qaulifiedgroups.php?page=Groups">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-single-copy-04 text-light text-sm opacity-10"></i>
             </div>

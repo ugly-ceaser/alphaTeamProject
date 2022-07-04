@@ -140,9 +140,9 @@ if (!empty($_POST['createGroup'])) {
 
 
 
-if ($_REQUEST['action'] === 'sendReq') {
+if ($_GET['action'] === 'sendReq') {
 
-    $recieverId = $_REQUEST['id'];
+    $recieverId = $_GET['id'];
     $senderId =  $_SESSION['id'];
     $datesent = date('Y-m-d');
     $status = 3;
@@ -186,13 +186,13 @@ if ($_REQUEST['action'] === 'sendReq') {
 
 
 
-if ($_REQUEST['action'] === 'acceptReq') {
+if ($_GET['action'] === 'acceptReq') {
 
 
     // echo "Request Sent Successfully";
     // die();
 
-    $senderId  = $_REQUEST['id'];
+    $senderId  = $_GET['id'];
     $recieverId =  $_SESSION['id'];
     $daterecieved = date('Y-m-d');
     $status = 1;
@@ -250,12 +250,12 @@ if ($_REQUEST['action'] === 'acceptReq') {
 }
 
 
-if ($_REQUEST['action'] === 'declineReq') {
+if ($_GET['action'] === 'declineReq') {
 
     // echo "Request Sent Successfully";
     // die();
 
-    $senderId  = $_REQUEST['id'];
+    $senderId  = $_GET['id'];
     $recieverId =  $_SESSION['id'];
     $daterecieved = date('Y-m-d');
     $status = 0;
@@ -296,6 +296,47 @@ if ($_REQUEST['action'] === 'declineReq') {
         $deleteNot_result = mysqli_query($conn, $deleteNot);
 
 
+
+        $success = "Request Sent Successfully";
+    } else {
+        $success =   "Request Failed  :" . $sql_result . "<br>" . mysqli_error($conn);
+    }
+
+
+    echo $success;
+}
+
+
+
+
+
+
+if ($_REQUEST['action'] === 'makeLeader') {
+
+    
+
+    //die();
+
+    $LeaderId  = $_GET['id'];
+    $AdminId =  $_SESSION['id'];
+    $daterecieved = date('Y-m-d');
+    $status = 1;
+
+
+    $task = "UPDATE `Users` SET `isgroupLeader`='1' WHERE `id` = '$LeaderId'";
+    $perform = mysqli_query($conn, $task);
+
+   // $success = "Request Sent Successfully";
+
+
+    if ($perform) {
+
+        $message = "you have been made a Group leader, Relog in to see the options available to you";
+
+        $isread = 1;
+
+        $notify = "INSERT INTO `Notification`(`not_frm`, `not_to`, `message`, `isRead`, `date_Added`) VALUES ('$AdminId','$LeaderId','$message','$isread','$daterecieved')";
+        $notify_result = mysqli_query($conn,$notify);
 
         $success = "Request Sent Successfully";
     } else {

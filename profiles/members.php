@@ -122,14 +122,34 @@ $row_get = mysqli_fetch_assoc($query_result);
             </td>
             <?php
             if (!empty($_SESSION['Admin'])) { ?>
-              <td>
-                <a href="" class="a bg-success"><span>Make Leader</span></a>
 
+              
+                    <td>
 
-              </td>
-            <?php } ?>
-          </tr>
-        <?php   endforeach; ?>
+                    <?php 
+
+                      $userId = $details[0]["id"];
+
+                    $req_check = "SELECT * FROM `Users` WHERE `id` = '$userId'";
+                    $result = $conn->query($req_check);
+
+                          if ($result->num_rows > 0) {
+                              $status_fetch = mysqli_fetch_assoc($result);
+
+                              $status = $status_fetch['isgroupLeader'];
+                              if($status == 1){
+
+                                echo "All Reader Leader";
+
+                                }else if ($status == 0 ){  //echo"not a leader"; ?>
+                            <button  id="makeLeader" onclick='makeLeaderAction(1,<?= $details[0]["id"]; ?>)' class="a bg-success"><span>Make Leader</span></button>
+
+                        <?php } ?>
+
+                    </td>
+                    <?php } ?>
+                              </tr>
+        <?php }  endforeach; ?>
 
       <?php else : ?>
 
@@ -149,6 +169,10 @@ $row_get = mysqli_fetch_assoc($query_result);
 </div>
 
 </main>
+
+<script src="../js/lib/bootstrap/jquery-3.5.1.js"></script>
+
+<script src="./inc/script.js"></script>
 
 
 

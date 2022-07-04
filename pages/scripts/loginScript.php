@@ -23,8 +23,7 @@ $errorEmail = false;
 
             echo "<span class='error'>Fill all Feilds</span>";
 
-            $errEmpty
- = true;
+            $errEmpty= true;
             
         }else if(!filter_var($Email, FILTER_VALIDATE_EMAIL)){
 
@@ -49,6 +48,8 @@ $errorEmail = false;
                     $row = $result->fetch_assoc();
 
                     $id = $row['id'];
+
+                    $_SESSION['logged'] =  "logged_in";
 
                     $_SESSION['id'] = $id;
 
